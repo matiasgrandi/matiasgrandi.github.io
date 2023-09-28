@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>¿Qué hace un economista?</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+		<!-- Title-Footer plugin -->
+		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+						<div class="slides">
+				<section>
+                    <h2>Seminario "Taller Evaluación Práctica De Políticas Públicas De Ingreso Y Gasto Público: Impacto Y Equidad"</h2>
+						<h3>AECID</h3>
+                    <h5>Noviembre 2016, Cartagena, Colombia</h5>
+						<p>
+							<small>Lic. Matías Manuel Grandi / <a href="mailto:mgrandi@mininterior.gob.ar" target="_top">mgrandi@mininterior.gob.ar</a> / <a href="mailto:matiasgrandi@gmail.com" target="_top">matiasgrandi@gmail.com.ar</a>
+						<br/>
+                                Subsecretaría de Coordinación
+						<br/>
+                                Ministerio del Interior, Obras Públicas y Vivienda					
+						<br/>	
+                                Argentina</small></p>
+				</section>
+				
+				<section>
+						<h2>Propuesta de Diseño para la evaluación de la Tarjeta Argenta</h2>
+				</section>
+				<section>
+						<h2>Tarjeta Argenta</h2>
+                        <h3>Situación previa</h3>
+                        <ul>
+                            <li>Usura sufrida por los jubilados por creditos de mutuales, cooperativas, sindicatos y bancos.</li>
+                            <li>Descuento de la cuota directamente de los haberes jubilatorios</li>
+                            <li>Costo Financiero Total (CFT) superior al 160%</li>
+                        </ul>
+                </section>
+                <section>
+						<h2>Tarjeta Argenta</h2>
+                        <h3></h3>
+                        <ul>
+                            <li>Población objetivo: Jubilados y Pensionados del SIPA</li>
+                            <li>Tope al CFT: No mas de 5 puntos por encima de la tasa de interés del BNA</li>
+                            <li>Costo Financiero Total (CFT) superior al 160%</li>
+                        </ul>
+                        <ul>
+                            <li>Prestamos dese $1000 hasta $10.000 (u$s66 - u$s660) </li></ul>
+                </section>
+
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+				// Title-Footer plugin
+				{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize(); } }
+			],
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
