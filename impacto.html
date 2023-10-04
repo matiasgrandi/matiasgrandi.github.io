@@ -17,7 +17,11 @@
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/night.css" id="theme">
-
+		
+		<!-- Chart plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+		
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 		<style type="text/css">
@@ -36,6 +40,9 @@
 
 			<div class="slides">
 				<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+
+
+
 
 ## Introducción a los métodos de evaluación de impacto
 
@@ -393,9 +400,12 @@ _*_ Estadísticamente significativas al 5%
 				progress: true,
 				center: true,
 				hash: true,
-
+				chart: {
+				    // add configuration here
+				  },
+				
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX]
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealChart]
 			});
 
 		</script>
