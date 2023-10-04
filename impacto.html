@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Evaluación de impacto</title>
+
+		<meta name="description" content="Introducción a la evaluación de impacto">
+		<meta name="author" content="">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style type="text/css">
+		    p { text-align: left; }
+		    .reveal h6 {
+			text-transform: none;
+			font-weight: 400;
+		    }
+		    
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+
+## Introducción a los métodos de evaluación de impacto
+
+###### [Lic. Matías Grandi](mailto:matiasgrandi@gmail.com)
+###### 22 de octubre de 2022
+###### Legislatura Ciudad Autónoma de Buenos Aires
+
+---
+
+#### ¿Qué es evaluación de impacto?
+
+Evaluación de impacto(EI) = Evaluar el impacto de una variable x sobre
+una variable y.
+
+- Efecto causal de x sobre y
+- y puede ser una variable binaria o continua
+- x puede ser una variable binaria o continua
+
+x puede representar el acceso a un programa público.
+
+x también puede medir la intensidad de exposición a un programa (“dose
+analysis”)
+
+--
+
+Distintos métodos a mano:
+- Métodos experimentales
+	- La regla de oro en métodos de evaluación
+- Métodos no-experimentales
+	- Doble diferencia / efectos fijos (del individuo, hogar, distrito,
+	etc)
+	- Controles sintéticos
+	- Métodos de emparejamiento
+	- Diseño de regresión discontinua
+	- Variables instrumentales
+- Combinación de métodos
+	- Método experimental y variables instrumentales
+	- Doble diferencia y emparejamiento
+	- . . .
+
+---
+
+## Sesgo de Selección
+
+--
+
+#### Problema del contrafactual
+
+Para cada individuo que accede a un programa se puede postular la
+existencia de dos resultados potenciales: `$Yi(0)$` e `$Yi(1) $`
+
+- `$Yi(0)$` es el resultado que hubiese sido observado si el individuo no
+recibiese el tratamiento (no accede al programa).
+
+- `$Yi(1)$` es el resultado que hubiese sido observado si el individuo
+recibiese el tratamiento (accede al programa).
+- `$Yi(1) − Yi(0)$` es el efecto causal del tratamiento para el individuo i.
+
+El problema es que para ningún individuo i observamos ambos
+resultados!
+
+--
+
+#### ¿Qué queremos saber?
+
+Los resultados potenciales se vinculan con el resultado observado a
+través de la siguiente fórmula
+
+`$$ Yi = Yi(1) ∗ wi + Yi(0) ∗ (1 − wi) (1) $$`
+
+donde `$w_i$` toma el valor de 1 si el individuo recibe el tratamiento, 0 de otra
+manera.
+
+--
+
+#### ¿Qué queremos saber? (cont)
+
+Lo que los datos observacionales nos pueden mostrar es:
+
+Observado = `$E[Y_i(1)|w_i = 1] − E[Y_i(0)|w_i = 0]$`
+
+sumando y restando el término `$E[Yi(0)|wi = 1]$`, y reordenando, se obtiene que
+
+Observado = `$ATT + E[Y_i(0)|w_i = 1]−E[Y_i(0)|w_i = 0]$` = ATT + _Selección_
+
+
+--
+
+#### ¿Qué queremos saber? (cont)
+
+El sesgo de selección es equivalente al sesgo por variable omitida en el
+análisis de regresión.
+
+El sesgo de selección es endémico. Esto hace que los efectos causales
+sean difíciles de medir.
+
+---
+
+## Método experimental
+
+--
+
+#### Los experimentos resuelven el problema de sesgo de selección
+
+
+Si el tratamiento (w) es asignado de manera aleatoria, entonces es independiente de los resultados potenciales (Supuesto de Independencia)
+
+`$wi⊥{Y_0, Y_1} (4)$`
+
+Es decir, en este caso la probabilidad de ser asignado al tratamiento no varía con el resultado potencial. Bajo asignación aleatoria, aquellos con mayor probabilidad de beneficiarse del tratamiento no tienen una mayor probabilidad de recibirlo.
+
+--
+
+#### Método experimental
+
+
+Los experimentos tienen sus propios problemas. Sin embargo, resuelven posiblemente el problema más importante de la microeconometría: el
+sesgo de selección o sesgo por variable omitida.
+
+El uso de experimentos es la mayor revolución en economía empírica de la década. Ver, por ejemplo, Dufflo (2006)*
+
+
+_*Dufflo, E., 2006. “Using Randomization in Development Economics Research: a Toolkit”_
+
+--
+
+#### Pasos prácticos para un experimento
+
+Supongamos que deseamos evaluar el impacto de dar laptops a niños de escuelas primarias en zonas rurales. Las laptops aún no han sido repartidas y nos dan la oportunidad de diseñar el estudio. 
+
+¿Qué necesitamos?
+
+--
+
+#### Pasos prácticos para un experimento
+
+1- Definir la población de interés (marco muestral).
+
+2- Definir la unidad de aleatorización: ¿niños/hogares? ¿escuelas? ¿centros poblados?
+
+3- Definir el tamaño de muestra. Considerando (posiblemente) algún nivel de estratificación.
+
+--
+
+#### Pasos prácticos para un experimento
+
+4- Aleatorizar (lotería simple, lotería parcial, diseño de intervención escalonada, tratamientos múltiples, ...).
+
+5- Implementar una línea de base.
+
+6- Llevar a cabo la intervención.
+
+7- Medir los resultados!
+
+---
+
+#### Métodos para estimar impacto
+
+Analicemos dos métodos para estimar impactos usando datos de colegios con balsakhi
+
+1. Pre-post
+2. Diferencia simple
+3. Diferencias en diferencias
+4. Regresiones simples o multivariadas
+5. Experimentos aleatorios
+
+--
+
+#### Pre-Post (Before-after)
+
+Cambio promedio en el _outcome of interest_ antes y después del programa
+
+Ejemplo:
+- Cuando no es posible establecer un link causal
+- Cuando es dificil construir un grupo para comparar, porque toda la población recibe el tratamiento
+
+--
+
+Problemas:
+- No tiene en cuenta la tendencia temporal
+- "response-shift-bias": cambio en la respuesta del participante ....
+
+--
+
+#### Pre-Post (Before-after)
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|Average post-test score for children with a balsakhi   |51.22   |
+|Average pretest score for children with a balsakhi|24.80   |   
+|Difference|26.42|
+
+--
+
+#### Pre-Post (Before-after)
+
+![Grafico1](img/impacto/grafico1.png "Grafico 1")
+
+##### Impacto 26.4 puntos?
+
+--
+
+#### Diferencias simples
+
+Una comparación de _outcomes_ entre el grupo que recibió el programa y un grupo de comparación que no lo recibió
+
+Ejemplo:
+- El programa se desarrolla en etapas, dejando un cohorte para comparación, aunque la asignación del programa no es aleatoria.
+- El programa se desarrolla por áreas geográficas diferentes (localidades, provincias, etc).
+
+--
+
+Problemas:
+- No toma en cuenta diferencias previas al tratamiento (sesgo de selección)
+
+--
+
+#### Diferencias simples
+
+Comparando resultados en los examenes de niños que tuvieron acceso al balsakhi contra los que no lo tuvieron
+
+|||
+|---|---|
+|Resultado promedio para niños con balsakhi|51.22|
+|Resultado promedio para niños sin balsakhi|56.27|
+|Diferencia|-5.05|
+
+--
+
+#### ¿bajo que condiciones la diferencia (-5.05) puede ser interpretada como el impacto del programa?
+
+--
+
+¿Qué hubiese pasado sin el programa?
+
+Metodo 2: Comparasión simple
+Impacto: -5.05?
+
+![Grafico2](img/impacto/grafico2.png "Grafico 2")
+
+--
+
+## Diferencias en diferencias
+
+> Camparación del _outcome_ entre un grupo de tratamiento y otro de control (1ra. diferencia) y antes y después del programa (2da. diferencia)
+
+--
+
+Aplicabilidad:
+- el programa se implementa en fases dejando un cohorte para comparación, incluso si la asignación no es aleatoria.
+- Si el programa se implementa en algunas regiones por vez.
+
+Problemas:
+- problema del "_parallel trend assumption_": impacto del tiempo en ambos grupos puede no ser similar
+
+--
+
+Comparamos resultados de los exámenes con los de niños con Balsakhi contra niños que no tuvieron Balsakhi.
+
+--
+
+||Pre-test|Post-test|Diferencia|
+|---|---|---|---|
+|Promedio de resultados de niños **con** Balsakhi|24.80|51.22|26.42|
+
+--
+
+#### ¿Qué hubiese pasado sin Balsakhi?
+
+Método 3: Diferencias en diferencias
+
+![Grafico3](img/impacto/grafico3.png "Grafico 3")
+
+--
+
+#### Diferencias en diferencias
+
+||Pre-test|Post-test|Diferencia|
+|---|---|---|---|
+|Promedio de resultados de niños **con** Balsakhi|24.80|51.22|26.42|
+|Promedio de resultados de niños **sin** Balsakhi|36.67|56.27|19.60|
+|**Diferencia**|||**6.82**|
+
+--
+
+### Regresiones simples/multivariadas
+
+--
+
+#### Regresiones simples/multivariadas
+
+> Cambios en el _outcome_ en el grupo de tratamiento controlado por características observables.
+
+--
+
+#### Regresiones simples/multivariadas
+
+Requiere:
+- Teorizar en cuáles de las caracteristicas observables puede impactaqr en el _outcome_ **además** del programa
+
+Problemas:
+- Cuantas caracteristicas tener en cuenta (sesgo por omisión de variables)?
+- Necesita una muestra grande si se controla por muchos factores.
+
+--
+
+#### Regresiones simples/multivariadas
+
+![Grafico4](img/impacto/grafico4.png "Grafico 4")
+
+--
+
+#### Impacto del programa Balsakhi - Resumen
+
+|Método|Impacto Estimado|
+|---|---|
+|(1) Pre-Post|26.42*|
+|(2) Diferencia siemple|-5.05*|
+|(3) Diferencias en diferencias|6.82*|
+|(4) Regresiones|1.92|
+|(5) Experimento aleatorio|5.87*|
+
+_*_ Estadísticamente significativas al 5%
+
+--
+
+### ¡¡¡el método elegido para la evaluación importa!!!
+
+--
+
+
+
+
+
+
+
+				</section>
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX]
+			});
+
+		</script>
+
+	</body>
+</html>
+
