@@ -1,87 +1,86 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
 
-		<title>Evaluación de impacto</title>
+	<title>Evaluación de impacto</title>
 
-		<meta name="description" content="Introducción a la evaluación de impacto">
-		<meta name="author" content="">
+	<meta name="description" content="Introducción a la evaluación de impacto">
+	<meta name="author" content="">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/night.css" id="theme">
-		
-		<!-- Chart plugin -->
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
-		
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-		<style type="text/css">
-		    p { text-align: left; }
-		    .reveal h6 {
-			text-transform: none;
-			font-weight: 400;
-		    }
-		    
-		</style>
-	</head>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/night.css" id="theme">
+	
+	<!-- Title-Footer plugin -->
+	<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+	
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<style type="text/css">
+	    p { text-align: left; }
+	    .reveal h6 {
+		text-transform: none;
+		font-weight: 400;
+	    }
+	    
+	</style>
+</head>
 
-	<body>
-
-		<div class="reveal">
-
-			<div class="slides">
-				<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
 
 
+
+
+
+<textarea data-template>
 
 
 ## Introducción a los métodos de evaluación de impacto
 
 ###### [Lic. Matías Grandi](mailto:matiasgrandi@gmail.com)
-###### 22 de octubre de 2022
-###### Legislatura Ciudad Autónoma de Buenos Aires
+###### 
+<small><b><center>22 de octubre de 2022<br>
+Legislatura Ciudad Autónoma de Buenos Aires</center></b></small>
+
 
 ---
 
 #### ¿Qué es evaluación de impacto?
 
-Evaluación de impacto(EI) = Evaluar el impacto de una variable x sobre
-una variable y.
+Evaluación de impacto(EI) = Evaluar el impacto de una variable `$x$` sobre
+una variable `$y$`.
 
-- Efecto causal de x sobre y
-- y puede ser una variable binaria o continua
-- x puede ser una variable binaria o continua
+- Efecto causal de `$x$` sobre `$y$`
+- `$y$` puede ser una variable binaria o continua
+- `$x$` puede ser una variable binaria o continua
 
-x puede representar el acceso a un programa público.
+`$x$` puede representar el acceso a un programa público.
 
-x también puede medir la intensidad de exposición a un programa (“dose
-analysis”)
+`$x$` también puede medir la intensidad de exposición a un programa (_dose
+analysis_)
 
 --
 
-Distintos métodos a mano:
+Distintos métodos para medir impacto:
 - Métodos experimentales
 	- La regla de oro en métodos de evaluación
 - Métodos no-experimentales
-	- Doble diferencia / efectos fijos (del individuo, hogar, distrito,
-	etc)
-	- Controles sintéticos
-	- Métodos de emparejamiento
-	- Diseño de regresión discontinua
-	- Variables instrumentales
-- Combinación de métodos
-	- Método experimental y variables instrumentales
-	- Doble diferencia y emparejamiento
-	- . . .
+	- Pre-post (_before-after_)
+	- Diferencia simple
+	- Diferencias en diferencias
+	- Regresiones simples o multivariadas
+	
+
 
 ---
 
@@ -99,10 +98,14 @@ recibiese el tratamiento (no accede al programa).
 
 - `$Yi(1)$` es el resultado que hubiese sido observado si el individuo
 recibiese el tratamiento (accede al programa).
+
+--
+
+#### Problema del contrafactual
+
 - `$Yi(1) − Yi(0)$` es el efecto causal del tratamiento para el individuo i.
 
-El problema es que para ningún individuo i observamos ambos
-resultados!
+##### ¡El problema es que para ningún individuo `$i$` observamos ambos resultados!
 
 --
 
@@ -111,7 +114,7 @@ resultados!
 Los resultados potenciales se vinculan con el resultado observado a
 través de la siguiente fórmula
 
-`$$ Yi = Yi(1) ∗ wi + Yi(0) ∗ (1 − wi) (1) $$`
+`$$ Yi = Yi(1) ∗ wi + Yi(0) ∗ (1 − wi) $$`
 
 donde `$w_i$` toma el valor de 1 si el individuo recibe el tratamiento, 0 de otra
 manera.
@@ -120,13 +123,27 @@ manera.
 
 #### ¿Qué queremos saber? (cont)
 
+Efecto promedio del tratamiento en la población (_Average Treatment
+Effect_ ó ATE)
+
+`$ATE = E[Y_i(1)]−E[Y_i(0)]=E[Y_i(1)−Y_i(0)]$`
+
+--
+
+Efecto promedio del tratamiento en la poblacion tratada (_Average
+Treatment Effect on the Treated_ ó ATT)
+
+`$ATT = E[Y_i (1)|w_i = 1] − E[Y_i (0)|w_i = 1] = E[Y_i (1) − Y_i (0)|w_i = 1]$`
+
+--
+
 Lo que los datos observacionales nos pueden mostrar es:
 
-Observado = `$E[Y_i(1)|w_i = 1] − E[Y_i(0)|w_i = 0]$`
+- Observado = `$E[Y_i(1)|w_i = 1] − E[Y_i(0)|w_i = 0]$`
 
 sumando y restando el término `$E[Yi(0)|wi = 1]$`, y reordenando, se obtiene que
 
-Observado = `$ATT + E[Y_i(0)|w_i = 1]−E[Y_i(0)|w_i = 0]$` = ATT + _Selección_
+- Observado = `$ATT + E[Y_i(0)|w_i = 1]−E[Y_i(0)|w_i = 0] = ATT$` + _Selección_
 
 
 --
@@ -145,12 +162,15 @@ sean difíciles de medir.
 
 --
 
-#### Los experimentos resuelven el problema de sesgo de selección
+#### Método experimental
+<center><b> Los experimentos resuelven el problema de sesgo de selección</b></center>
 
 
-Si el tratamiento (w) es asignado de manera aleatoria, entonces es independiente de los resultados potenciales (Supuesto de Independencia)
+Si el tratamiento (`$w$`) es asignado de manera aleatoria, entonces es independiente de los resultados potenciales (Supuesto de Independencia)
 
 `$wi⊥{Y_0, Y_1} (4)$`
+
+--
 
 Es decir, en este caso la probabilidad de ser asignado al tratamiento no varía con el resultado potencial. Bajo asignación aleatoria, aquellos con mayor probabilidad de beneficiarse del tratamiento no tienen una mayor probabilidad de recibirlo.
 
@@ -165,7 +185,7 @@ sesgo de selección o sesgo por variable omitida.
 El uso de experimentos es la mayor revolución en economía empírica de la década. Ver, por ejemplo, Dufflo (2006)*
 
 
-_*Dufflo, E., 2006. “Using Randomization in Development Economics Research: a Toolkit”_
+<small>_*Dufflo, E., 2006. “Using Randomization in Development Economics Research: a Toolkit”_</small>
 
 --
 
@@ -199,11 +219,32 @@ Supongamos que deseamos evaluar el impacto de dar laptops a niños de escuelas p
 
 ---
 
+## Métodos para estimar impacto
+
+--
+
+#### Métodos para estimar impacto
+**Programa a evaluar**: Balsakhi Remedial Tutoring en Vadodara y Mumbai, India
+
+--
+
+#### Métodos para estimar impacto
+**Contexto**: 44% de los niños de entre 7 y 22 años de la India  no podían leer un parrafo simple y el 50% no podía reliazar una operación de resta, a pesar que la mayoría estaba inscripto en una escuela.
+
+
+--
+
+#### Métodos para estimar impacto
+**Detalles**: En 122 escuelas públicas en Vadodara y 77 en Mumbai, un tutor (**balsakhi**), trabaja con los niños de 2, 3 and 4 grado que tienen complicaciones en el aprendizaje respecto a sus compañeros.
+
+--
+
 #### Métodos para estimar impacto
 
-Analicemos dos métodos para estimar impactos usando datos de colegios con balsakhi
 
-1. Pre-post
+Analicemos algunos métodos para estimar impactos usando datos de colegios con Balsakhi
+
+1. Pre-post (_before-after_)
 2. Diferencia simple
 3. Diferencias en diferencias
 4. Regresiones simples o multivariadas
@@ -213,7 +254,7 @@ Analicemos dos métodos para estimar impactos usando datos de colegios con balsa
 
 #### Pre-Post (Before-after)
 
-Cambio promedio en el _outcome of interest_ antes y después del programa
+> Cambio promedio en el resultado de interés antes y después del programa
 
 Ejemplo:
 - Cuando no es posible establecer un link causal
@@ -223,17 +264,19 @@ Ejemplo:
 
 Problemas:
 - No tiene en cuenta la tendencia temporal
-- "response-shift-bias": cambio en la respuesta del participante ....
+- _response-shift-bias_: cambio en la capacidad de respuesta del estudiantes antes y después del tratamiento, por otro motivo
 
 --
 
 #### Pre-Post (Before-after)
 
 |   |   |   |   |   |
-|---|---|---|---|---|
-|Average post-test score for children with a balsakhi   |51.22   |
-|Average pretest score for children with a balsakhi|24.80   |   
-|Difference|26.42|
+|:---|---|---|---|---|
+|Puntaje promedio post-test para un niño con balsakhi   |51.22   |
+|Puntaje promedio pre-test para un niño con balsakhi|24.80   |   
+|Diferencia|26.42|
+
+##### ¿Bajo que condiciones esta diferencia (26.42) puede ser interpretada como el impacto del programa?
 
 --
 
@@ -247,7 +290,7 @@ Problemas:
 
 #### Diferencias simples
 
-Una comparación de _outcomes_ entre el grupo que recibió el programa y un grupo de comparación que no lo recibió
+Comparación de resultados entre el grupo que recibió el programa y un grupo de control que no lo recibió
 
 Ejemplo:
 - El programa se desarrolla en etapas, dejando un cohorte para comparación, aunque la asignación del programa no es aleatoria.
@@ -255,6 +298,7 @@ Ejemplo:
 
 --
 
+#### Diferencias simples
 Problemas:
 - No toma en cuenta diferencias previas al tratamiento (sesgo de selección)
 
@@ -276,7 +320,9 @@ Comparando resultados en los examenes de niños que tuvieron acceso al balsakhi 
 
 --
 
-¿Qué hubiese pasado sin el programa?
+#### Diferencias simples
+
+##### ¿Qué hubiese pasado sin el programa?
 
 Metodo 2: Comparasión simple
 Impacto: -5.05?
@@ -285,12 +331,13 @@ Impacto: -5.05?
 
 --
 
-## Diferencias en diferencias
+#### Diferencias en diferencias
 
-> Camparación del _outcome_ entre un grupo de tratamiento y otro de control (1ra. diferencia) y antes y después del programa (2da. diferencia)
+> Camparación del resultado entre un grupo de tratamiento y otro de control (1ra. diferencia) y antes y después del programa (2da. diferencia)
 
 --
 
+#### Diferencias en diferencias
 Aplicabilidad:
 - el programa se implementa en fases dejando un cohorte para comparación, incluso si la asignación no es aleatoria.
 - Si el programa se implementa en algunas regiones por vez.
@@ -300,13 +347,15 @@ Problemas:
 
 --
 
+#### Diferencias en diferencias
+
 Comparamos resultados de los exámenes con los de niños con Balsakhi contra niños que no tuvieron Balsakhi.
 
 --
 
 ||Pre-test|Post-test|Diferencia|
 |---|---|---|---|
-|Promedio de resultados de niños **con** Balsakhi|24.80|51.22|26.42|
+|Promedio de resultados de niños **_con_** Balsakhi|24.80|51.22|26.42|
 
 --
 
@@ -334,14 +383,14 @@ Método 3: Diferencias en diferencias
 
 #### Regresiones simples/multivariadas
 
-> Cambios en el _outcome_ en el grupo de tratamiento controlado por características observables.
+> Cambios en el resultado en el grupo de tratamiento controlado por características observables.
 
 --
 
 #### Regresiones simples/multivariadas
 
 Requiere:
-- Teorizar en cuáles de las caracteristicas observables puede impactaqr en el _outcome_ **además** del programa
+- Teorizar en cuáles de las caracteristicas observables pueden impactar en el resultado **además** del programa
 
 Problemas:
 - Cuantas caracteristicas tener en cuenta (sesgo por omisión de variables)?
@@ -371,13 +420,31 @@ _*_ Estadísticamente significativas al 5%
 
 ### ¡¡¡el método elegido para la evaluación importa!!!
 
+---
+
+#### Bibliografía
+<small>
+
+- Angrist, J. D., & Pischke, J.-S. (2008). Mostly harmless econometrics. Princeton University Press.
+
+- Gertler, P., Martinez, S., Rawlings, L., Premand, P., &amp; Vermeersch, C. (2011). La evaluación de impacto en la práctica. Banco Interamericano de Desarrollo
+
+- Abdul Latif‐Jameel Poverty Action Lab (J‐PAL). “¿Por qué aleatorizar?” La evaluación de programas sociales. Universidad de los Andes. Bogota, Colombia. 14 Jul 2010.
+
+- Pomeranz, Dina (2017). Impact evaluation methods in public economics : a brief introduction to randomized evaluations and comparison with other methods. Public Finance Review, 45(1):10-43.
+
+- Banerjee, A. V., Cole, S., Duflo, E., & Linden, L. (2007). Remedying Education: Evidence from Two Randomized Experiments in India. The Quarterly Journal of Economics, 122(3), 1235–1264. http://www.jstor.org/stable/25098872
+
+</small>
+
+
 --
 
+#### Descargas
 
-
-
-
-
+- Presentación: [impacto.pdf](impacto.html?print-pdf)
+- Descargar Paper [Remedying education: Evidence from two randomized experiments in India](https://www.nber.org/system/files/working_papers/w11904/w11904.pdf)
+</textarea>
 
 				</section>
 			</div>
@@ -391,6 +458,9 @@ _*_ Estadísticamente significativas al 5%
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script src="plugin/math/math.js"></script>
+				<!-- Chart plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
 		<script>
 
 			// Also available as an ES module, see:
@@ -400,10 +470,6 @@ _*_ Estadísticamente significativas al 5%
 				progress: true,
 				center: true,
 				hash: true,
-				chart: {
-				    // add configuration here
-				  },
-				
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealChart]
 			});
