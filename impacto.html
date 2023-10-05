@@ -35,6 +35,21 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css">
+	
+	
+	<!-- Chart plugin -->
+	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+
+	<!-- https://stackoverflow.com/questions/21019476/how-can-i-get-left-justified-paragraphs-in-reveal-js -->
+	<style type="text/css">
+	    	p { text-align: left; }
+		.reveal h6 {
+	        text-transform: none;
+        	font-weight: 400;
+	</style>
+	
+	
 </head>
 
 <body>
@@ -47,6 +62,8 @@
 
 
 <textarea data-template>
+
+
 
 
 ## Introducción a los métodos de evaluación de impacto
@@ -86,7 +103,34 @@ Distintos métodos para medir impacto:
 	- Diferencia simple
 	- Diferencias en diferencias
 	- Regresiones simples o multivariadas
-	
+
+---
+
+#### Introducción
+
+Objetivo: Medir impacto causal.
+
+Ejemplo: Impacto de las notificaciones por incumplimiento de AFIP (causa) sobre recaudación (efecto)
+
+Problema: Sólo se puede medir lo que ocurrió, no lo que hubiera ocurrido sin el programa.
+
+--
+
+#### Introducción
+
+Lo que hubiera pasado sin el programa se llama **contrafactual**
+
+Cada evaluación intenta construir la estimación del contrafactual de la mejor manera posible.
+
+--
+
+#### Introducción
+
+Grupo de control: personas que no participan en el programa.
+Grupo de tratamiento: personas que participaron en el programa.
+Impacto: comparación entre GC y GT
+
+Si GC y CT son iguales en todas sus características (observables y no observables), salvo en una (participación en el programa) las diferencia entre GC y GT son debido al programa.
 
 
 ---
@@ -298,6 +342,26 @@ Problemas:
 
 --
 
+
+<div style="height:480px">
+<canvas data-chart="line" >
+Con tratamiento,  24.80, 51.22
+<!-- This is a comment -->
+Sin tratamiento, 24.80, 24.80
+<!-- 
+{ 
+"data" : {
+	"labels" : ["2002", "2003"],
+	"datasets" : [{ "borderColor": "#0f0" }, { "borderColor": "#0ff" } ]
+	}
+}
+-->
+</canvas>
+</div>
+
+
+--
+
 #### Diferencias simples
 
 Comparación de resultados entre el grupo que recibió el programa y un grupo de control que no lo recibió
@@ -334,8 +398,7 @@ Comparando resultados en los examenes de niños que tuvieron acceso al balsakhi 
 
 ##### ¿Qué hubiese pasado sin el programa?
 
-Metodo 2: Comparasión simple
-Impacto: -5.05?
+<small>Método 2: Comparasión simple // Impacto: -5.05?</small>
 
 ![Grafico2](img/impacto/grafico2.png "Grafico 2")
 
@@ -371,7 +434,7 @@ Comparamos resultados de los exámenes con los de niños con Balsakhi contra ni�
 
 #### ¿Qué hubiese pasado sin Balsakhi?
 
-Método 3: Diferencias en diferencias
+<small>Método 3: Diferencias en diferencias</small>
 
 ![Grafico3](img/impacto/grafico3.png "Grafico 3")
 
@@ -504,6 +567,19 @@ _*_ Estadísticamente significativas al 5%
 				chalkboard: {
 				    // add configuration here
 				  },
+				chart: {
+					defaults: {
+						color: 'lightgray', // color of labels
+						scale: {
+							beginAtZero: true,
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": 																[ [5,10], [0,0] ] },
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+				},
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ 	RevealZoom, 
 						RevealNotes, 
