@@ -27,12 +27,15 @@
 	<!-- Font awesome is required for the chalkboard plugin -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 	<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
 	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+
 	<!-- Chalkboard plugin -->
 	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css">
 	
@@ -49,6 +52,8 @@
         	font-weight: 400;
 	</style>
 	
+
+
 	
 </head>
 
@@ -63,9 +68,6 @@
 
 <textarea data-template>
 
-
-
-
 ## Introducción a los métodos de evaluación de impacto
 
 ###### [Lic. Matías Grandi](mailto:matiasgrandi@gmail.com)
@@ -78,19 +80,46 @@ Legislatura de la Ciudad Autónoma de Buenos Aires</center></b></small>
 
 ---
 
+## ¿Qué es evaluación de impacto?
+
+--
+
 #### ¿Qué es evaluación de impacto?
 
-Evaluación de impacto(EI) = Evaluar el impacto de una variable `$x$` sobre
-una variable `$y$`.
+**Objetivo**: Medir impacto causal.
 
-- Efecto causal de `$x$` sobre `$y$`
-- `$y$` puede ser una variable binaria o continua
-- `$x$` puede ser una variable binaria o continua
+**Ejemplo**: Impacto de las notificaciones por incumplimiento de AFIP (causa) sobre recaudación (efecto)
 
-`$x$` puede representar el acceso a un programa público.
+**Problema**: Sólo se puede medir lo que ocurrió, no lo que hubiera ocurrido sin el programa.
 
-`$x$` también puede medir la intensidad de exposición a un programa (_dose
-analysis_)
+--
+
+#### ¿Qué es evaluación de impacto?
+
+Lo que hubiera pasado sin el programa se llama **<text style="color:yellow">contrafactual</text>**
+
+Cada evaluación intenta construir la estimación del contrafactual de la mejor manera posible.
+
+--
+
+#### ¿Qué es evaluación de impacto?
+
+
+**Grupo de control**: personas que no participan en el programa.
+
+**Grupo de tratamiento**: personas que participaron en el programa.
+
+**Impacto**: comparación entre _GC_ y _GT_
+
+Si _GC_ y _CT_ son iguales en todas sus características (observables y no observables), salvo en una (participación en el programa) las diferencia entre GC y GT son debido al programa.
+
+--
+
+#### ¿Qué es evaluación de impacto?
+
+### ![Contrafactual](img/impacto/contrafactual.png)
+
+##### Impacto: Diferencia entre resultado observable (negro) y el contrafactual nunca observado (gris)
 
 --
 
@@ -102,36 +131,6 @@ Distintos métodos para medir impacto:
 	- Pre-post (_before-after_)
 	- Diferencia simple
 	- Diferencias en diferencias
-	- Regresiones simples o multivariadas
-
----
-
-#### Introducción
-
-Objetivo: Medir impacto causal.
-
-Ejemplo: Impacto de las notificaciones por incumplimiento de AFIP (causa) sobre recaudación (efecto)
-
-Problema: Sólo se puede medir lo que ocurrió, no lo que hubiera ocurrido sin el programa.
-
---
-
-#### Introducción
-
-Lo que hubiera pasado sin el programa se llama **contrafactual**
-
-Cada evaluación intenta construir la estimación del contrafactual de la mejor manera posible.
-
---
-
-#### Introducción
-
-Grupo de control: personas que no participan en el programa.
-Grupo de tratamiento: personas que participaron en el programa.
-Impacto: comparación entre GC y GT
-
-Si GC y CT son iguales en todas sus características (observables y no observables), salvo en una (participación en el programa) las diferencia entre GC y GT son debido al programa.
-
 
 ---
 
@@ -227,23 +226,66 @@ Si el tratamiento (`$w$`) es asignado de manera aleatoria, entonces es independi
 
 #### Método experimental
 
-Es decir, en este caso la probabilidad de ser asignado al tratamiento no varía con el resultado potencial. Bajo asignación aleatoria, aquellos con mayor probabilidad de beneficiarse del tratamiento no tienen una mayor probabilidad de recibirlo.
+- Construye un grupo de control de máxima calidad. No hay diferencias entre _GC_ y _GT_
+
+- Requiere que se la evaluación se prepare **_antes_** de lanzar el programa
+
+--
+
+#### Método experimental
+- ley de los grandes números (LGN): cuando hay suficientes personas en cada grupo una asignación aleatoria genera dos grupos que se parecen en todas las características observables (como educación), y no observables, (como motivación).
+
+--
+
+#### Método experimental
+¿Número requerido de participantes en cada grupo? Según LGN mientras más individuos están en el estudio más probable es que los dos
+grupos serán parecidos. Importancia del tamaño de muestra.
+
+<aside class="notes">
+Un mayor tamaño siempre es mejor porque reduce la probabilidad de que, por casualidad, se obtengan grupos desbalanceados. Sin embargo, un estudio de mayor tamaño puede ser más costoso y no siempre es factible
+</aside>
+
+--
+
+#### Método experimental
+- Más alta es la **varianza de la variable dependiente** más observaciones son necesarias para poder detectar un efecto estadísticamente significativo. 
+- Mas pequeño efecto que se quiere medir, más grande es el número de participantes requerido.
+- Diseño de la aleatorización: Si se aleatoriza a nivel de grupos (diseño conglomerado), se requieren mas observaciones que si la aleatorización es a nivel individual.  
+
+<aside class="notes">
+Si se aleatoriza a nivel de grupos (diseño conglomerado), por ejemplo todas las empresas de un mismo contador juntas, se requiere más empresas que si la aleatorización es a nivel individual.  
+</aside>
+
+--
+
+#### Método experimental
+- Determinado _n_, se procede al proceso de asignación aleatoria. Los grupos deben estar balanceados con respeto a las principales variables de
+interés.
+- Tabla de balance, que las principales características son parecidas en los dos grupos.  
+- Se recomiendo prueba piloto, para evitar problemas en la implementación
+
+<aside class="notes">
+Durante la implementación es importante asegurarse que se respete la asignación aleatoria y que no se cambien participantes de un grupo a otro.2 Lo más importante en este proceso es asegurarse que no haya ninguna otra diferencia entre el grupo de tratamiento y el grupo de control salvo la aplicación del programa. Por ejemplo, se perdería la validez del estudio  si se detienen las otras actividades fiscalizadoras en el grupo de control pero se siguen aplicando en el grupo de tratamiento o al revés
+<aside>
+
+--
+
+#### Método experimental
+- **Ventajas**: La estimación del impacto del programa es muy creíble cuando se diseñó e implementó correctamente.  
+- **Desventajas**: Requiere la asignación aleatoria antes del programa por lo que usualmente no se pueden hacer evaluaciones retrospectivas. El tamaño de la muestra debe ser lo suficientemente grande para poder detectar un resultado significativo.
 
 --
 
 #### Método experimental
 
-
-Los experimentos tienen sus propios problemas. Sin embargo, resuelven posiblemente el problema más importante de la microeconometría: el
-sesgo de selección o sesgo por variable omitida.
+Es decir, en este caso la probabilidad de ser asignado al tratamiento no varía con el resultado potencial. Bajo asignación aleatoria, aquellos con mayor probabilidad de beneficiarse del tratamiento no tienen una mayor probabilidad de recibirlo.
 
 El uso de experimentos es la mayor revolución en economía empírica de la década. Ver, por ejemplo, Duflo, E., Glennerster, R. and Kremer, M.(2006)
 
-
-
 --
 
-#### Pasos prácticos para un experimento
+#### Método experimental
+##### Pasos prácticos para un experimento
 
 Supongamos que deseamos evaluar el impacto de dar laptops a niños de escuelas primarias en zonas rurales. Las laptops aún no han sido repartidas y nos dan la oportunidad de diseñar el estudio. 
 
@@ -251,49 +293,44 @@ Supongamos que deseamos evaluar el impacto de dar laptops a niños de escuelas p
 
 --
 
-#### Pasos prácticos para un experimento
+#### Método experimental
+##### Pasos prácticos para un experimento
 
-1- Definir la población de interés (marco muestral).
-
-2- Definir la unidad de aleatorización: ¿niños/hogares? ¿escuelas? ¿centros poblados?
-
-3- Definir el tamaño de muestra. Considerando (posiblemente) algún nivel de estratificación.
+1. Escoger un programa y una población de interés, y las principales variables de interés.  
+2. Cálculos de poder estadístico: Determinar el tamaño requerido de los grupos de tratamiento y de control, para tener una buena esperanza de medir los impactos en las variables de interés.  
+3. Asignación aleatoria al tratamiento. Verificar que la asignación resultó equilibrada con respeto a las principales variables de interés.  
 
 --
 
-#### Pasos prácticos para un experimento
+#### Método experimental
+##### Pasos prácticos para un experimento
 
-4- Aleatorizar (lotería simple, lotería parcial, diseño de intervención escalonada, tratamientos múltiples, ...).
-
-5- Implementar una línea de base.
-
-6- Llevar a cabo la intervención.
-
-7- Medir los resultados!
+4. Piloto: implementación del programa a pequeña escala para evitar problemas inesperadas (si posible).
+5. Implementación: Asegurarse no haya ninguna otra diferencia entre _GT_ y _GC_.
 
 ---
 
-## Métodos para estimar impacto
+## Métodos no experimentales
 
 --
 
-#### Métodos para estimar impacto
+#### Métodos no experimentales
 **Programa a evaluar**: Balsakhi Remedial Tutoring en Vadodara y Mumbai, India
 
 --
 
-#### Métodos para estimar impacto
+#### Métodos no experimentales
 **Contexto**: 44% de los niños de entre 7 y 22 años de la India  no podían leer un parrafo simple y el 50% no podía reliazar una operación de resta, a pesar que la mayoría estaba inscripto en una escuela.
 
 
 --
 
-#### Métodos para estimar impacto
+#### Métodos no experimentales
 **Detalles**: En 122 escuelas públicas en Vadodara y 77 en Mumbai, un tutor (**balsakhi**), trabaja con los niños de 2, 3 and 4 grado que tienen complicaciones en el aprendizaje respecto a sus compañeros.
 
 --
 
-#### Métodos para estimar impacto
+#### Métodos no experimentales
 
 
 Analicemos algunos métodos para estimar impactos usando datos de colegios con Balsakhi
@@ -306,6 +343,30 @@ Analicemos algunos métodos para estimar impactos usando datos de colegios con B
 
 --
 
+#### Diferencia Simple (Tratados vs no tratados)
+> Comparar el grupo que recibió el programa con otro grupo que no lo recibió.
+
+--
+
+- Método más simple
+- El grupo de control debería representar lo que hubiera pasado con el grupo de tratamiento sin el programa (supuesto dificil de cumplir)
+- Si la asignación no es aleatoria, tenemos _sesgo de selección_.
+
+<aside class="notes">
+las notas de los niños que recibieron la ayuda de un tutor con los que no la recibieron es posible que se observe que los niños con tutores tienen notas más bajas que los niños sin tutores. 
+
+Concluir en base a esta observación, que los tutores hicieron daño al logro escolar de los niños muy probablemente sería erróneo.
+
+Lo más probable es que hubo una selección inicial en la cual niños con notas más bajas tenían mayor probabilidad de recibir la ayuda de un tutor. 
+
+En este caso, el sesgo de selección introduce una subestimación del
+impacto tan fuerte que el impacto parece negativo en lugar de positivo.  
+</aside>
+
+
+
+--
+
 #### Pre-Post (Before-after)
 
 > Cambio promedio en el resultado de interés antes y después del programa
@@ -314,11 +375,21 @@ Ejemplo:
 - Cuando no es posible establecer un link causal
 - Cuando es dificil construir un grupo para comparar, porque toda la población recibe el tratamiento
 
+<aside class="notes>
+En vez de usar otro grupo de personas como grupo del control se usa el mismo grupo de personas antes del comienzo del programa.  
+</aside>
+
 --
 
 Problemas:
 - No tiene en cuenta la tendencia temporal
-- _response-shift-bias_: cambio en la capacidad de respuesta del estudiantes antes y después del tratamiento, por otro motivo
+- Choques
+
+<aside class="notes">
+¿el grupo de personas antes del comienzo del programa es una buena representación del contrafactual? Es decir, ¿es correcto suponer que sin el programa, durante este periodo no se hubiera dado ningún cambio en los resultados del grupo tratado?
+
+¿Es creíble asumir que en los 2 años del programa, los niños no hubieran mejorado sus notas sin los tutores? En realidad, es probable que los estudiantes hubieran seguido aprendiendo y mejorando sus conocimientos.
+</aside>
 
 --
 
@@ -328,7 +399,7 @@ Problemas:
 |---|---|
 |Score promedio post-test p/ niño con balsakhi|51.22|
 |Score promedio pre-test p/ niño con balsakhi|24.80|
-|Diferencia|26.42|
+|<text style="color:yellow">Diferencia</text>|<text style="color:yellow">26.42</text>|
 |||
 ##### ¿Bajo que condiciones esta diferencia (26.42) puede ser interpretada como el impacto del programa?
 
@@ -344,15 +415,17 @@ Problemas:
 
 #### Diferencias simples
 
-Comparación de resultados entre el grupo que recibió el programa y un grupo de control que no lo recibió
+> Comparación de resultados entre el grupo que recibió el programa y un grupo de control que no lo recibió
+
+
+--
+
+#### Diferencias simples
 
 Ejemplo:
 - El programa se desarrolla en etapas, dejando un cohorte para comparación, aunque la asignación del programa no es aleatoria.
 - El programa se desarrolla por áreas geográficas diferentes (localidades, provincias, etc).
 
---
-
-#### Diferencias simples
 Problemas:
 - No toma en cuenta diferencias previas al tratamiento (sesgo de selección)
 
@@ -366,7 +439,7 @@ Comparando resultados en los examenes de niños que tuvieron acceso al balsakhi 
 |---|---|
 |Resultado promedio para niños con balsakhi|51.22|
 |Resultado promedio para niños sin balsakhi|56.27|
-|Diferencia|-5.05|
+|<text style="color:yellow">Diferencia</text>|<text style="color:yellow">-5.05</text>|
 
 --
 
@@ -426,7 +499,17 @@ Comparamos resultados de los exámenes con los de niños con Balsakhi contra ni�
 |---|---|---|---|
 |Promedio de resultados de niños **con** Balsakhi|24.80|51.22|26.42|
 |Promedio de resultados de niños **sin** Balsakhi|36.67|56.27|19.60|
-|**Diferencia**|||**6.82**|
+|<text style="color:yellow">Diferencia</text>|||<text style="color:yellow">6.82</text>|
+
+
+
+--
+
+## Matching y Propensity Score Matching
+
+--
+
+![Grafico4](img/impacto/psm.png "Grafico 4")
 
 --
 
@@ -467,7 +550,7 @@ Problemas:
 |(4) Regresiones|1.92|
 |(5) Experimento aleatorio|5.87*|
 
-_*_ Estadísticamente significativas al 5%
+<small>_*_ Estadísticamente significativas al 5%</small>
 
 --
 
@@ -476,19 +559,20 @@ _*_ Estadísticamente significativas al 5%
 ---
 
 #### Bibliografía
-<small>
 
+<small>
+   
 - Abdul Latif‐Jameel Poverty Action Lab (J‐PAL). “¿Por qué aleatorizar?” La evaluación de programas sociales. Universidad de los Andes. Bogota, Colombia. 14 Jul 2010.
 
 - Angrist, J. D., & Pischke, J.-S. (2008). Mostly harmless econometrics. Princeton University Press.
 
-- Banerjee, A. V., Cole, S., Duflo, E., & Linden, L. (2007). Remedying Education: Evidence from Two Randomized Experiments in India. The Quarterly Journal of Economics, 122(3), 1235–1264. http://www.jstor.org/stable/25098872
+- Banerjee, A. V., Cole, S., Duflo, E., & Linden, L. (2007). Remedying Education: Evidence from Two Randomized Experiments in India. The Quarterly Journal of Economics, 122(3), 1235–1264. http://www.jstor.org/stable/25098872 ([descarga](https://www.nber.org/system/files/working_papers/w11904/w11904.pdf))
 
-- Duflo, E., Glennerster, R. and Kremer, M., Using Randomization in Development Economics Research: A Toolkit (December 12, 2006). MIT Department of Economics Working Paper No. 06-36, Available at [SSRN](https://ssrn.com/abstract=951841)
+- Duflo, E., Glennerster, R. and Kremer, M., Using Randomization in Development Economics Research: A Toolkit (December 12, 2006). MIT Department of Economics Working Paper No. 06-36, Available at [SSRN](https://ssrn.com/abstract=951841) ([descarga](https://www.nber.org/system/files/working_papers/t0333/t0333.pdf))
 
-- Gertler, P., Martinez, S., Rawlings, L., Premand, P., &amp; Vermeersch, C. (2011). La evaluación de impacto en la práctica. Banco Interamericano de Desarrollo
+- Gertler, P., Martinez, S., Rawlings, L., Premand, P., &amp; Vermeersch, C. (2011). La evaluación de impacto en la práctica. Banco Interamericano de Desarrollo ([descarga](https://publications.iadb.org/publications/spanish/document/La-evaluaci%C3%B3n-de-impacto-en-la-pr%C3%A1ctica-Segunda-edici%C3%B3n.pdf))
 
-- Pomeranz, Dina (2017). Impact evaluation methods in public economics : a brief introduction to randomized evaluations and comparison with other methods. Public Finance Review, 45(1):10-43.
+- Pomeranz, Dina (2017). Impact evaluation methods in public economics : a brief introduction to randomized evaluations and comparison with other methods. Public Finance Review, 45(1):10-43. ([descarga](https://dash.harvard.edu/bitstream/handle/1/25757697/16-049.pdf]))
 
 
 </small>
@@ -496,12 +580,11 @@ _*_ Estadísticamente significativas al 5%
 
 --
 
-#### Descargas
+#### Descarga
 
 <small>
 
 - Presentación: [impacto.pdf](impacto.html?print-pdf) - Cargada la nueva presentación, presionar `ctrl-p` y guardar como `pdf`
-- Descargar Paper [Remedying education: Evidence from two randomized experiments in India](https://www.nber.org/system/files/working_papers/w11904/w11904.pdf)
 
 </small>
 
@@ -573,7 +656,6 @@ _*_ Estadísticamente significativas al 5%
 			});
 
 		</script>
-
 	</body>
 </html>
 
