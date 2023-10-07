@@ -159,77 +159,57 @@ Distintos métodos para medir impacto:
 
 ## Sesgo de Selección
 
---
+---
 
-#### Problema del contrafactual
+#### ¿Qué medimos? Resultados (_outcomes_)
 
-Para cada individuo que accede a un programa se puede postular la
-existencia de dos resultados potenciales: `$Yi(0)$` e `$Yi(1) $`
+La definición de los outcomes con los que mediremos el impacto debería derivarse de forma bastante directa de los objetivos del programa, ya sean los declarados formalmente o los identificados en la elaboración de la teoría del cambio de la intervención.
 
-- `$Yi(0)$` es el resultado que hubiese sido observado si el individuo no
-recibiese el tratamiento (no accede al programa).
-
-- `$Yi(1)$` es el resultado que hubiese sido observado si el individuo
-recibiese el tratamiento (accede al programa).
+<aside class="notes">
+si el objetivo de un programa es la reducción de la siniestralidad en las carreteras, parece que la definición de los outcomes debería capturar de la mejor manera posible el fenómeno de la siniestralidad en las carreteras. Sin embargo, la tarea de identificar los outcomes y la forma de medirlos raramente es directa y suele precisar de la toma de algunas decisiones sobre qué, cómo y cuándo medir
+</aside>
 
 --
 
-#### Problema del contrafactual
+#### ¿Qué medimos? Resultados (_outcomes_)
 
-- `$Yi(1) − Yi(0)$` es el efecto causal del tratamiento para el individuo i.
-
-##### ¡El problema es que para ningún individuo `$i$` observamos ambos resultados!
-
---
-
-#### ¿Qué queremos saber?
-
-Los resultados potenciales se vinculan con el resultado observado a
-través de la siguiente fórmula
-
-`$$ Yi = Yi(1) ∗ wi + Yi(0) ∗ (1 − wi) $$`
-
-donde `$w_i$` toma el valor de 1 si el individuo recibe el tratamiento, 0 de otra
-manera.
+- Intervenciones públicas tienen objetivos múltiples: Debemos elegir que queremos evaluar.
+- Objetivos multidimensionales, incluso las manera de medir impacto pueden ser multiples.
+- Impactos especialmente difíciles de medir.
+- Objetivos intangibles
 
 --
 
-#### ¿Qué queremos saber? (cont)
+#### ¿Cómo medimos?
 
-Efecto promedio del tratamiento en la población (_Average Treatment
-Effect_ ó ATE)
-
-`$ATE = E[Y_i(1)]−E[Y_i(0)]=E[Y_i(1)−Y_i(0)]$`
+- Escoger una medida preexistente, implica que alguien ya ha comprobado su fiabilidad y facilita la posterior comparación de resultados con otras evaluaciones. 
+- El esfuerzo de localizar una medida válida es menor el de desarrollar y hacer pruebas con una nueva.
 
 --
 
-#### ¿Qué queremos saber? (cont)
-Efecto promedio del tratamiento en la poblacion tratada (_Average
-Treatment Effect on the Treated_ ó ATT)
+#### ¿Cómo medimos? Fiabilidad de la medida
 
-`$ATT = E[Y_i (1)|w_i = 1] − E[Y_i (0)|w_i = 1] = E[Y_i (1) − Y_i (0)|w_i = 1]$`
+<img style="float: center;" src="img/impacto/medicion.png">
 
 --
 
-#### ¿Qué queremos saber? (cont)
-Lo que los datos observacionales nos pueden mostrar es:
+#### ¿Cuándo lo medimos?
 
-- Observado = `$E[Y_i(1)|w_i = 1] − E[Y_i(0)|w_i = 0]$`
+- distintos momentos de medida pueden conducir a conclusiones diferentes
+- no se puede hablar de corto o largo plazo, con exactitud, a plazos de tiempo.
 
-sumando y restando el término `$E[Yi(0)|wi = 1]$`, y reordenando, se obtiene que
+<aside class="notes">
+Algunos impactos implican procesos lentos y pueden tardar en producirse, otros pueden ocurrir rápidamente, pero no mantenerse en el tiempo.
+</aside>
 
-- Observado = `$ATT + E[Y_i(0)|w_i = 1]−E[Y_i(0)|w_i = 0] = ATT$` + _Selección_
 
 
 --
 
-#### ¿Qué queremos saber? (cont)
 
-El sesgo de selección es equivalente al sesgo por variable omitida en el
-análisis de regresión.
 
-El sesgo de selección es endémico. Esto hace que los efectos causales
-sean difíciles de medir.
+--
+
 
 ---
 
@@ -240,18 +220,31 @@ sean difíciles de medir.
 #### Método experimental
 
 - Construye un grupo de control de máxima calidad. No hay diferencias entre _GC_ y _GT_. Resuelven el problema de sesgo de selección
-
 - Requiere que la evaluación se prepare **_antes_** de lanzar el programa
 
 --
 
+
 #### Método experimental
-![Asignación Aleatoria](img/impacto/aleatorio.png)
+
+
+<img style="float: center;" src="img/impacto/aleatorio.png">
+
+
 
 --
 
 #### Método experimental
 - ley de los grandes números (LGN): cuando hay suficientes personas en cada grupo una asignación aleatoria genera dos grupos que se parecen en todas las características observables (como educación), y no observables, (como motivación).
+
+<aside class="notes">
+La estratificación se recomienda cuando el número de participantes potenciales es pequeño, y en general para asegurarse que los dos grupos sean equilibrados con respeto a las variables más importantes. 
+
+En la estratificación, se divide la muestra en sub grupos con característica similares y se aleatoriza dentro de cada subgrupo. 
+
+Por ejemplo, si se divide la población por género y se asigna 30% de los hombres y 30% de las mujeres al tratamiento, la asignación será perfectamente equilibrada por género. 
+
+El grupo de tratamiento tendría la misma composición de género que el grupo de control.
 
 --
 
@@ -592,9 +585,9 @@ Problemas:
 
 - Pomeranz, Dina (2017). Impact evaluation methods in public economics : a brief introduction to randomized evaluations and comparison with other methods. Public Finance Review, 45(1):10-43. ([descarga](https://dash.harvard.edu/bitstream/handle/1/25757697/16-049.pdf]))
 
+- Guía práctica 5 Evaluación de impacto, Colección Ivàlua de guías prácticas sobre evaluación de políticas públicas, [Ivalúa](https://ivalua.cat/en/node/75)
 
 </small>
-
 
 --
 
