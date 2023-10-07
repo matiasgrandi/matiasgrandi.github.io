@@ -75,7 +75,7 @@
 <small><b><center>Octubre de 2022<br>
 Legislatura de la Ciudad Autónoma de Buenos Aires</center></b></small>
 
-</center><small>Puede seguir la presentación en <a href='https://matiasgrandi.github.io/impacto.html'>https://matiasgrandi.github.io/impacto.html</a></small><center>
+<!-- </center><small>Puede seguir la presentación en <a href='https://matiasgrandi.github.io/impacto.html'>https://matiasgrandi.github.io/impacto.html</a></small><center> -->
 
 
 ---
@@ -94,6 +94,7 @@ Legislatura de la Ciudad Autónoma de Buenos Aires</center></b></small>
 
 <aside class="notes">
 Se quiere medir el impacto de un programa o una política en alguna variable de interés. 
+
 Ejemplo:
 - cuál es el impacto de una notificación en las rectificaciones de impuestos.
 - clases adicionales para estudiantes de colegio sobre la nota
@@ -111,38 +112,31 @@ Cada evaluación intenta construir la estimación del contrafactual de la mejor 
 --
 
 #### ¿Qué es evaluación de impacto?
-<center>
 
-![contrafactual](img/impacto/contrafactual.png)
+<img style="float: center;" src="img/impacto/contrafactual.png">
 
-</center>
-
-##### Impacto: Diferencia entre resultado observable (negro) y el contrafactual nunca observado (gris)
-
+<small>
+<b>Impacto: Diferencia entre resultado observable (negro) y el contrafactual nunca observado (gris)</b>
+</small>
 
 --
 
 #### ¿Qué es evaluación de impacto?
 
 La estimación del contrafactual se representa con un grupo que se denomina el
-grupo de control o de comparación
+**<text style="color:yellow">grupo de control o de comparación</text>**
 
 --
 
 #### ¿Qué es evaluación de impacto?
 
-**Grupo de control**: personas que no participan en el programa, cumpliendo los requisitos para hacerlos.
+**Grupo de control**: personas que no participan en el programa, cumpliendo los requisitos para hacerlo.
 
-**Grupo de tratamiento**: personas que participaron en el programa.
+**Grupo de tratamiento**: personas que participan en el programa.
 
 **Impacto**: comparación entre _GC_ y _GT_
 
-Si _GC_ y _CT_ son iguales en todas sus características (observables y no observables), salvo en una (participación en el programa) las diferencia entre GC y GT son debido al programa.
-
---
-
-#### ¿Qué es evaluación de impacto?
-
+Si _GC_ y _CT_ son iguales en todas sus características (observables y no observables), salvo en una (participación en el programa) la diferencia entre GC y GT son debido al programa.
 
 --
 
@@ -154,16 +148,17 @@ Distintos métodos para medir impacto:
 	- Pre-post (_before-after_)
 	- Diferencia simple
 	- Diferencias en diferencias
+	- Matching y PSM
 
 ---
 
-## Sesgo de Selección
+## Resultados (_outcomes_)
 
----
+--
 
-#### ¿Qué medimos? Resultados (_outcomes_)
+#### ¿Qué medimos?
 
-La definición de los outcomes con los que mediremos el impacto debería derivarse de forma bastante directa de los objetivos del programa, ya sean los declarados formalmente o los identificados en la elaboración de la teoría del cambio de la intervención.
+La definición de los _outcomes_ con los que mediremos el impacto debería derivarse de forma bastante directa de los objetivos del programa, ya sean los declarados formalmente o los identificados en la elaboración de la teoría del cambio de la intervención.
 
 <aside class="notes">
 si el objetivo de un programa es la reducción de la siniestralidad en las carreteras, parece que la definición de los outcomes debería capturar de la mejor manera posible el fenómeno de la siniestralidad en las carreteras. Sin embargo, la tarea de identificar los outcomes y la forma de medirlos raramente es directa y suele precisar de la toma de algunas decisiones sobre qué, cómo y cuándo medir
@@ -171,12 +166,11 @@ si el objetivo de un programa es la reducción de la siniestralidad en las carre
 
 --
 
-#### ¿Qué medimos? Resultados (_outcomes_)
+#### ¿Qué medimos?
 
-- Intervenciones públicas tienen objetivos múltiples: Debemos elegir que queremos evaluar.
+- Objetivos múltiples: Debemos elegir que queremos evaluar.
 - Objetivos multidimensionales, incluso las manera de medir impacto pueden ser multiples.
-- Impactos especialmente difíciles de medir.
-- Objetivos intangibles
+- Impactos especialmente difíciles de medir: Objetivos intangibles
 
 --
 
@@ -195,21 +189,108 @@ si el objetivo de un programa es la reducción de la siniestralidad en las carre
 
 #### ¿Cuándo lo medimos?
 
-- distintos momentos de medida pueden conducir a conclusiones diferentes
-- no se puede hablar de corto o largo plazo, con exactitud, a plazos de tiempo.
+- Distintos momentos de medida pueden conducir a conclusiones diferentes
+- No se puede hablar de corto o largo plazo. Se necesita exactitud, plazos de tiempo.
 
 <aside class="notes">
 Algunos impactos implican procesos lentos y pueden tardar en producirse, otros pueden ocurrir rápidamente, pero no mantenerse en el tiempo.
 </aside>
 
+---
+
+## Validez de las conclusiones
+
+--
+
+#### Validez de las conclusiones
+- Validez interna
+- Validez externa
+
+--
+
+#### Validez interna
+
+_«verdad relativa» de una inferencia causal, es decir, robustez con que se concluye que el programa es el agente responsable de los impactos observados._
+
+--
+
+#### Validez interna
+
+- Historia/factores contemporáneos: acontecimientos que suceden durante la implementación del programa y que pueden influir sobre los outcomes
+- Sesgo de selección: se produce cuando existe, desde antes del programa, alguna diferencia entre los participantes y el grupo de comparación que puede ser potencialmente responsable de las diferencias en _outcomes_
+
+<aside class="notes">
+- historia: programa de atención a las personas sin techo, las variaciones en el mercado de trabajo, la puesta en marcha de un programa de salud mental y los cambios en el control de la inmigración formaban parte de la historia del programa, ya que se producían al mismo tiempo que este e incidían sobre el número de personas que pernoctan en la calle (la medida del outcome), motivo por el cual podrían ser parcialmente responsables de los cambios observados y, por tanto, ser confundidos con el impacto del programa.
+
+- Sesgo de selección: programa de refuerzo lingüístico en catalán en el que se proporciona formación en lengua catalana solamente a los inmigrantes recién llegados que lo soliciten, con el objetivo final de facilitarles la inserción laboral. Es muy posible que los que se apunten sean distintos de los que no lo hagan en características relevantes para la inserción laboral: que su nivel educativo sea superior, que dominen mejor el castellano o que tengan más motivación para encontrar un trabajo
+</aside>
 
 
 --
 
+#### Validez interna
+
+- Desgaste diferencial de la muestra (_attrition_): cuando exista gente que abandana el programa, cambiando la composición de los grupos en alguna característica y pueda generar resultados no vinculados al programa.
+- Regresión a la media: tendencia estadística que tienen los resultados extremos que se producen en un determinado momento de medida de los _outcomes_ a acercarse a la media de la población cuando vuelven a ser medidos un tiempo después.
+
+<aside class="notes">
+- attrition: un programa destinado a prevenir recaídas en ex alcohólicos, los que mejor se encuentran y más seguros están de no recaer tienden a abandonarlo antes de su finalización porque lo consideran innecesario, y se les pierde la pista. En este caso, el grupo de participantes acaba estando compuesto por aquellos con un mayor riesgo de recaída. El grupo CT, sigue balanceado.
+
+- Regresión a la media: muchos fenómenos implican cierta variación aleatoria: por ejemplo, a un fin de semana con muchos accidentes de tráfico suele sucederle otro con un número inferior, aunque las circunstancias que determinan la propensión a los accidentes (el clima, el volumen de tráfico, etc.) no hayan variado
+
+</aside>
+
+--
+
+#### Validez interna
+
+- Efectos de los test: realizar un test a participantes y miembros del grupo de comparación antes del programa (pretest) y después (postest), con la finalidad de poder estimar cuál ha sido el impacto de la intervención.
+- Efecto Hawthorne: incremento del outcome que experimentan las personas por el mero hecho de que alguien les presta una atención especial, y no tanto por el efecto del programa en sí.
+
+<aside class="notes">
+
+- Efectos de los test: si el test consiste en hacer pruebas de colesterol, puede ser que las personas cuiden más su dieta porque saben que les volverán a medir.
+
+- Efecto Hawthorne: una serie de estudios realizados entre los años 1927 y 1932 en los que se observó que los trabajadores de una planta eléctrica aumentaban su productividad cuando tenían la sensación de que la dirección se preocupaba por ellos, independientemente de la forma que tomara dicha atención.
+</aside>
+
+--
+
+#### Validez interna
+
+- Maduración: cambio natural o crecimiento debido al mero paso del tiempo.
+- Efectos de los instrumentos: Si se produce un cambio en el instrumento empleado para medir los outcomes en el pretest y en el postest, la variación en los outcomes puede reflejar los efectos de este cambio técnico en el sistema de recogida de datos y puede con fundirse fácilmente con los impactos del programa.
+
+<aside class="notes">
+
+- Maduración: a mejora de las capacidades cognitivas de los niños, el temperamento de los comportamientos de riesgo de los adolescentes o el empeoramiento de la autonomía personal de las personas mayores son fenómenos que se producirán entre el pretest y el postest por efecto de la maduración
+- Efecto de los instrumentos: Es una amenaza frecuente cuando la evaluación hace un seguimiento de series temporales largas o cuando la medida depende de una valoración relativamente subjetiva que puede ir cambiando a lo largo del tiempo como, por ejemplo, la apreciación del grado de desestructuración de una persona sin techo en el momento de entrar al sistema.
+</aside>
 
 
 --
 
+#### Validez interna
+
+- Externalidades (_spillovers_): cuando los no participantes pueden absorber los beneficios del programa de forma indirecta, a menudo por el hecho de estar en
+contacto con los participantes
+
+
+--
+
+#### Validez Externa
+
+_Grado en que las conclusiones de una evaluación pueden ser generalizadas a otros programas similares, momentos o lugares más allá de los propios de la misma evaluación._
+
+<aside class="notes">
+cuanto más artificiales y controladas sean las condiciones del programa para facilitar la evaluación, menos plausible resulta pensar que estas condiciones se reproducirán en un programa similar que no esté sujeto a la evaluación
+</notes>
+
+--
+
+#### Validez de las conclusiones
+
+Cuanto más **<text style="color:yellow">artificiales y controladas</text>** sean las condiciones del programa para facilitar la evaluación, menos plausible resulta pensar que estas condiciones se reproducirán en un programa similar que no esté sujeto a la evaluación
 
 ---
 
@@ -220,7 +301,7 @@ Algunos impactos implican procesos lentos y pueden tardar en producirse, otros p
 #### Método experimental
 
 - Construye un grupo de control de máxima calidad. No hay diferencias entre _GC_ y _GT_. Resuelven el problema de sesgo de selección
-- Requiere que la evaluación se prepare **_antes_** de lanzar el programa
+- Requiere que la evaluación se prepare **<text style="color:yellow">antes</text>** de lanzar el programa
 
 --
 
@@ -230,12 +311,10 @@ Algunos impactos implican procesos lentos y pueden tardar en producirse, otros p
 
 <img style="float: center;" src="img/impacto/aleatorio.png">
 
-
-
 --
 
 #### Método experimental
-- ley de los grandes números (LGN): cuando hay suficientes personas en cada grupo una asignación aleatoria genera dos grupos que se parecen en todas las características observables (como educación), y no observables, (como motivación).
+- Ley de los grandes números (LGN): cuando hay suficientes personas en cada grupo, una asignación aleatoria genera dos grupos que se parecen en todas las **<text style="color:yellow">características observables</text>** (como educación), y **<text style="color:yellow">no observables</text>**, (como motivación).
 
 <aside class="notes">
 La estratificación se recomienda cuando el número de participantes potenciales es pequeño, y en general para asegurarse que los dos grupos sean equilibrados con respeto a las variables más importantes. 
@@ -250,7 +329,7 @@ El grupo de tratamiento tendría la misma composición de género que el grupo d
 
 #### Método experimental
 ¿Número requerido de participantes en cada grupo? Según LGN mientras más individuos están en el estudio más probable es que los dos
-grupos serán parecidos. Importancia del tamaño de muestra.
+grupos serán parecidos. **<text style="color:yellow">Importancia del tamaño de muestra</text>**.
 
 <aside class="notes">
 Un mayor tamaño siempre es mejor porque reduce la probabilidad de que, por casualidad, se obtengan grupos desbalanceados. Sin embargo, un estudio de mayor tamaño puede ser más costoso y no siempre es factible
@@ -259,9 +338,9 @@ Un mayor tamaño siempre es mejor porque reduce la probabilidad de que, por casu
 --
 
 #### Método experimental
-- Más alta es la **varianza de la variable dependiente** más observaciones son necesarias para poder detectar un efecto estadísticamente significativo. 
-- Mas pequeño efecto que se quiere medir, más grande es el número de participantes requerido.
-- Diseño de la aleatorización: Si se aleatoriza a nivel de grupos (diseño conglomerado), se requieren mas observaciones que si la aleatorización es a nivel individual.  
+- Más alta es la **<text style="color:yellow">varianza de la variable dependiente</text>** más observaciones son necesarias para poder detectar un efecto estadísticamente significativo. 
+- Mas **<text style="color:yellow">pequeño es el efecto</text>** que se quiere medir, más grande es el número de participantes requerido.
+- Diseño de la aleatorización: Si se aleatoriza a **<text style="color:yellow">nivel de grupos (diseño conglomerado)</text>**, se requieren mas observaciones que si la aleatorización es a nivel individual.  
 
 <aside class="notes">
 Si se aleatoriza a nivel de grupos (diseño conglomerado), por ejemplo todas las empresas de un mismo contador juntas, se requiere más empresas que si la aleatorización es a nivel individual.  
@@ -270,10 +349,10 @@ Si se aleatoriza a nivel de grupos (diseño conglomerado), por ejemplo todas las
 --
 
 #### Método experimental
-- Determinado _n_, se procede al proceso de asignación aleatoria. Los grupos deben estar balanceados con respeto a las principales variables de
+- Determinado _n_, se avanza al proceso de asignación aleatoria. Los grupos **<text style="color:yellow">deben estar balanceados</text>** con respeto a las principales variables de
 interés.
-- Tabla de balance, que las principales características son parecidas en los dos grupos.  
-- Se recomiendo prueba piloto, para evitar problemas en la implementación
+- Tabla de balance, para mostrar que las principales características son parecidas en los dos grupos.  
+- Se recomienda prueba piloto, para evitar problemas en la implementación.
 
 <aside class="notes">
 Durante la implementación es importante asegurarse que se respete la asignación aleatoria y que no se cambien participantes de un grupo a otro.2 Lo más importante en este proceso es asegurarse que no haya ninguna otra diferencia entre el grupo de tratamiento y el grupo de control salvo la aplicación del programa. Por ejemplo, se perdería la validez del estudio  si se detienen las otras actividades fiscalizadoras en el grupo de control pero se siguen aplicando en el grupo de tratamiento o al revés
@@ -288,9 +367,7 @@ Durante la implementación es importante asegurarse que se respete la asignació
 --
 
 #### Método experimental
-
-Es decir, en este caso la probabilidad de ser asignado al tratamiento no varía con el resultado potencial. Bajo asignación aleatoria, aquellos con mayor probabilidad de beneficiarse del tratamiento no tienen una mayor probabilidad de recibirlo.
-
+	
 El uso de experimentos es la mayor revolución en economía empírica de la década. Ver, por ejemplo, Duflo, E., Glennerster, R. and Kremer, M.(2006)
 
 --
@@ -308,7 +385,7 @@ Supongamos que deseamos evaluar el impacto de dar laptops a niños de escuelas p
 ##### Pasos prácticos para un experimento
 
 1. Escoger un programa y una población de interés, y las principales variables de interés.  
-2. Cálculos de poder estadístico: Determinar el tamaño requerido de los grupos de tratamiento y de control, para tener una buena esperanza de medir los impactos en las variables de interés.  
+2. Cálculos de poder estadístico: Determinar el tamaño requerido de los grupos de tratamiento y de control, para tener una buena probabilidad de medir los impactos en las variables de interés.  
 3. Asignación aleatoria al tratamiento. Verificar que la asignación resultó equilibrada con respeto a las principales variables de interés.  
 
 --
@@ -316,7 +393,7 @@ Supongamos que deseamos evaluar el impacto de dar laptops a niños de escuelas p
 #### Método experimental
 ##### Pasos prácticos para un experimento
 
-4. Piloto: implementación del programa a pequeña escala para evitar problemas inesperadas (si posible).
+4. Piloto: implementación del programa a pequeña escala para evitar problemas inesperadas (es si posible).
 5. Implementación: Asegurarse no haya ninguna otra diferencia entre _GT_ y _GC_.
 
 ---
@@ -331,20 +408,19 @@ Supongamos que deseamos evaluar el impacto de dar laptops a niños de escuelas p
 --
 
 #### Métodos no experimentales
-**Contexto**: 44% de los niños de entre 7 y 22 años de la India  no podían leer un parrafo simple y el 50% no podía reliazar una operación de resta, a pesar que la mayoría estaba inscripto en una escuela.
-
-
---
-
-#### Métodos no experimentales
-**Detalles**: En 122 escuelas públicas en Vadodara y 77 en Mumbai, un tutor (**balsakhi**), trabaja con los niños de 2, 3 and 4 grado que tienen complicaciones en el aprendizaje respecto a sus compañeros.
+**Contexto**: 44% de los niños entre 7 y 22 años de la India no podían leer un párrafo simple y el 50% no podía realizar una operación de resta, a pesar que la mayoría estaba escolarizado.
 
 --
 
 #### Métodos no experimentales
+**Detalles**: En 122 escuelas públicas en Vadodara y 77 en Mumbai, un tutor (**<text style="color:yellow">balsakhi</text>**), trabaja con los niños de 2º, 3º y 4º grado que presentan complicaciones en el aprendizaje respecto a sus compañeros.
+
+--
+
+#### Métodos no experimentales
 
 
-Analicemos algunos métodos para estimar impactos usando datos de colegios con Balsakhi
+Analicemos algunos métodos para estimar impactos usando datos de colegios donde implementaron Balsakhi:
 
 1. Pre-post (_before-after_)
 2. Diferencia simple
@@ -359,19 +435,19 @@ Analicemos algunos métodos para estimar impactos usando datos de colegios con B
 
 --
 
+#### Diferencia Simple (Tratados vs no tratados)
 - Método más simple
 - El grupo de control debería representar lo que hubiera pasado con el grupo de tratamiento sin el programa (supuesto dificil de cumplir)
-- Si la asignación no es aleatoria, tenemos _sesgo de selección_.
+- Si la asignación no es aleatoria, tenemos **<text style="color:yellow">sesgo de selección</text>**.
 
 <aside class="notes">
-las notas de los niños que recibieron la ayuda de un tutor con los que no la recibieron es posible que se observe que los niños con tutores tienen notas más bajas que los niños sin tutores. 
+Si comparamos las notas de los niños que recibieron la ayuda de un tutor con los que no la recibieron es posible que se observe que los niños con tutores tienen notas más bajas que los niños sin tutores. 
 
 Concluir en base a esta observación, que los tutores hicieron daño al logro escolar de los niños muy probablemente sería erróneo.
 
 Lo más probable es que hubo una selección inicial en la cual niños con notas más bajas tenían mayor probabilidad de recibir la ayuda de un tutor. 
 
-En este caso, el sesgo de selección introduce una subestimación del
-impacto tan fuerte que el impacto parece negativo en lugar de positivo.  
+En este caso, el sesgo de selección introduce una subestimación del impacto tan fuerte que el impacto parece negativo en lugar de positivo.  
 </aside>
 
 
@@ -382,6 +458,10 @@ impacto tan fuerte que el impacto parece negativo en lugar de positivo.
 
 > Cambio promedio en el resultado de interés antes y después del programa
 
+--
+
+#### Pre-Post (Before-after)
+
 Ejemplo:
 - Cuando no es posible establecer un link causal
 - Cuando es dificil construir un grupo para comparar, porque toda la población recibe el tratamiento
@@ -391,6 +471,8 @@ En vez de usar otro grupo de personas como grupo del control se usa el mismo gru
 </aside>
 
 --
+
+#### Pre-Post (Before-after)
 
 Problemas:
 - No tiene en cuenta la tendencia temporal
@@ -418,9 +500,9 @@ Problemas:
 
 #### Pre-Post (Before-after)
 
-![Grafico1](img/impacto/grafico1.png "Grafico 1")
+<img style="float: center;" src="img/impacto/grafico1.png">
 
-##### Impacto 26.4 puntos?
+<center><small><b>¿Impacto 26.4 puntos?</b></small></center>
 
 --
 
@@ -462,9 +544,10 @@ Comparando resultados en los examenes de niños que tuvieron acceso al balsakhi 
 
 ##### ¿Qué hubiese pasado sin el programa?
 
-<small>Método 2: Comparasión simple // Impacto: -5.05?</small>
+<img style="float: center;" src="img/impacto/grafico2.png">
 
-![Grafico2](img/impacto/grafico2.png "Grafico 2")
+<center><small><b>¿Impacto -5.05 puntos?</b></small></center>
+
 
 --
 
@@ -498,9 +581,9 @@ Comparamos resultados de los exámenes con los de niños con Balsakhi contra ni�
 
 #### ¿Qué hubiese pasado sin Balsakhi?
 
-<small>Método 3: Diferencias en diferencias</small>
+<!-- <small>Método 3: Diferencias en diferencias</small> -->
 
-![Grafico3](img/impacto/grafico3.png "Grafico 3")
+<img style="float: center;" src="img/impacto/grafico3.png">
 
 --
 
@@ -580,6 +663,14 @@ Problemas:
 - Banerjee, A. V., Cole, S., Duflo, E., & Linden, L. (2007). Remedying Education: Evidence from Two Randomized Experiments in India. The Quarterly Journal of Economics, 122(3), 1235–1264. http://www.jstor.org/stable/25098872 ([descarga](https://www.nber.org/system/files/working_papers/w11904/w11904.pdf))
 
 - Duflo, E., Glennerster, R. and Kremer, M., Using Randomization in Development Economics Research: A Toolkit (December 12, 2006). MIT Department of Economics Working Paper No. 06-36, Available at [SSRN](https://ssrn.com/abstract=951841) ([descarga](https://www.nber.org/system/files/working_papers/t0333/t0333.pdf))
+
+</small>
+
+--
+
+#### Bibliografía
+
+<small>
 
 - Gertler, P., Martinez, S., Rawlings, L., Premand, P., &amp; Vermeersch, C. (2011). La evaluación de impacto en la práctica. Banco Interamericano de Desarrollo ([descarga](https://publications.iadb.org/publications/spanish/document/La-evaluaci%C3%B3n-de-impacto-en-la-pr%C3%A1ctica-Segunda-edici%C3%B3n.pdf))
 
