@@ -328,7 +328,7 @@ El grupo de tratamiento tendría la misma composición de género que el grupo d
 --
 
 #### Método experimental
-¿Número requerido de participantes en cada grupo? Según LGN mientras más individuos están en el estudio más probable es que los dos
+¿Número requerido de participantes en cada grupo? Según LGN mientras más individuos estén en el estudio más probable es que los dos
 grupos serán parecidos. **<text style="color:yellow">Importancia del tamaño de muestra</text>**.
 
 <aside class="notes">
@@ -405,6 +405,12 @@ Supongamos que deseamos evaluar el impacto de dar laptops a niños de escuelas p
 #### Métodos no experimentales
 **Programa a evaluar**: Balsakhi Remedial Tutoring en Vadodara y Mumbai, India
 
+<aside class="notes">
+Tenemos resultados para este programa en algunos de los métodos.
+
+Vamos a agregar otros métodos que no se usaron en este programa, aunque no haya resultados.
+</aside>
+
 --
 
 #### Métodos no experimentales
@@ -420,7 +426,7 @@ Supongamos que deseamos evaluar el impacto de dar laptops a niños de escuelas p
 #### Métodos no experimentales
 
 
-Analicemos algunos métodos para estimar impactos usando datos de colegios donde implementaron Balsakhi:
+Métodos no experimentales utilizados y no utilizados para evaluar Balsakhi:
 
 1. Pre-post (_before-after_)
 2. Diferencia simple
@@ -431,7 +437,7 @@ Analicemos algunos métodos para estimar impactos usando datos de colegios donde
 --
 
 #### Diferencia Simple (Tratados vs no tratados)
-> Comparar el grupo que recibió el programa con otro grupo que no lo recibió.
+> Comparación de resultados entre el grupo que recibió el programa y un grupo de control que no lo recibió
 
 --
 
@@ -449,66 +455,6 @@ Lo más probable es que hubo una selección inicial en la cual niños con notas 
 
 En este caso, el sesgo de selección introduce una subestimación del impacto tan fuerte que el impacto parece negativo en lugar de positivo.  
 </aside>
-
-
-
---
-
-#### Pre-Post (Before-after)
-
-> Cambio promedio en el resultado de interés antes y después del programa
-
---
-
-#### Pre-Post (Before-after)
-
-Ejemplo:
-- Cuando no es posible establecer un link causal
-- Cuando es dificil construir un grupo para comparar, porque toda la población recibe el tratamiento
-
-<aside class="notes>
-En vez de usar otro grupo de personas como grupo del control se usa el mismo grupo de personas antes del comienzo del programa.  
-</aside>
-
---
-
-#### Pre-Post (Before-after)
-
-Problemas:
-- No tiene en cuenta la tendencia temporal
-- Choques
-
-<aside class="notes">
-¿el grupo de personas antes del comienzo del programa es una buena representación del contrafactual? Es decir, ¿es correcto suponer que sin el programa, durante este periodo no se hubiera dado ningún cambio en los resultados del grupo tratado?
-
-¿Es creíble asumir que en los 2 años del programa, los niños no hubieran mejorado sus notas sin los tutores? En realidad, es probable que los estudiantes hubieran seguido aprendiendo y mejorando sus conocimientos.
-</aside>
-
---
-
-#### Pre-Post (Before-after)
-
-|||
-|---|---|
-|Score promedio post-test p/ niño con balsakhi|51.22|
-|Score promedio pre-test p/ niño con balsakhi|24.80|
-|<text style="color:yellow">Diferencia</text>|<text style="color:yellow">26.42</text>|
-|||
-##### ¿Bajo que condiciones esta diferencia (26.42) puede ser interpretada como el impacto del programa?
-
---
-
-#### Pre-Post (Before-after)
-
-<img style="float: center;" src="img/impacto/grafico1.png">
-
-<center><small><b>¿Impacto 26.4 puntos?</b></small></center>
-
---
-
-#### Diferencias simples
-
-> Comparación de resultados entre el grupo que recibió el programa y un grupo de control que no lo recibió
 
 
 --
@@ -534,6 +480,10 @@ Comparando resultados en los examenes de niños que tuvieron acceso al balsakhi 
 |Resultado promedio para niños sin balsakhi|56.27|
 |<text style="color:yellow">Diferencia</text>|<text style="color:yellow">-5.05</text>|
 
+<aside class="notes">
+Es peor el resultado con balsakhi, fundamentalmente porque son los peores alumnos, no porque el programa no sirve.
+</aside>
+
 --
 
 #### ¿bajo que condiciones la diferencia (-5.05) puede ser interpretada como el impacto del programa?
@@ -547,7 +497,64 @@ Comparando resultados en los examenes de niños que tuvieron acceso al balsakhi 
 <img style="float: center;" src="img/impacto/grafico2.png">
 
 <center><small><b>¿Impacto -5.05 puntos?</b></small></center>
+	
+--
 
+#### Pre-Post (Before-after)
+
+> es un tipo particular de evaluación de diferencia simple. En lugar de tomar otro grupo de personas como grupo del control se usa el mismo grupo de personas antes del comienzo del programa
+
+<aside class="notes">
+mide el cambio en el tiempo tomando en cuenta el estado inicial del grupo. En este caso, se mide el impacto como la diferencia entre la situación anterior y la situación posterior a una interven‐
+ción.
+</aside>
+
+--
+
+#### Pre-Post (Before-after)
+
+¿es correcto suponer que sin el programa, durante este periodo no se hubiera dado ningún cambio en los resultados del grupo tratado?
+
+<aside class="notes">
+mide el cambio en el tiempo tomando en cuenta el estado inicial del grupo. En este caso, se mide el impacto como la diferencia entre la situación anterior y la situación posterior a una intervención.
+
+¿Es creíble asumir que en los 2 años del programa, los niños no hubieran mejorado sus notas sin los tutores?
+</aside>
+
+--
+
+#### Pre-Post (Before-after)
+
+|||
+|---|---|
+|Score promedio post-test p/ niño con balsakhi|51.22|
+|Score promedio pre-test p/ niño con balsakhi|24.80|
+|<text style="color:yellow">Diferencia</text>|<text style="color:yellow">26.42</text>|
+|||
+##### ¿Bajo que condiciones esta diferencia (26.42) puede ser interpretada como el impacto del programa?
+
+--
+
+#### Pre-Post (Before-after)
+
+<img style="float: center;" src="img/impacto/grafico1.png">
+
+<center><small><b>¿Impacto 26.4 puntos?</b></small></center>
+
+--
+
+#### Pre-Post (Before-after)
+
+Problemas:
+- No tiene en cuenta la tendencia temporal
+- Choques
+
+<aside class="notes">
+¿el grupo de personas antes del comienzo del programa es una buena representación del contrafactual? Es decir, ¿es correcto suponer que sin el programa, durante este periodo no se hubiera dado ningún cambio en los resultados del grupo tratado?
+
+“choques” que cambian el resultado pero no tienen que ver con el programa. Por ejemplo, si hay una crisis económica durante el periodo de implementación de una política fiscalizadora el comportamiento tributario puede variar independientemente de esta política.
+
+</aside>
 
 --
 
@@ -569,10 +576,11 @@ Problemas:
 
 #### Diferencias en diferencias
 
-Comparamos resultados de los exámenes con los de niños con Balsakhi contra niños que no tuvieron Balsakhi.
+Comparamos resultados de los exámenes de niños con Balsakhi contra el de niños que no tuvieron Balsakhi.
 
 --
 
+#### Diferencias en diferencias
 ||Pre-test|Post-test|Diferencia|
 |---|---|---|---|
 |Promedio de resultados de niños **_con_** Balsakhi|24.80|51.22|26.42|
@@ -599,15 +607,79 @@ Comparamos resultados de los exámenes con los de niños con Balsakhi contra ni�
 
 --
 
-## Matching y Propensity Score Matching
+#### Matching 
+> Construye un grupo idéntico en características observables antes del programa
 
 --
 
-![Grafico4](img/impacto/psm.png "Grafico 4")
+#### Matching 
+
+Caso básico: para cada individuo en el grupo tratado se busca un individuo con las mismas características observables en el grupo no tratado.
+
+Los dos grupos tenían las mismas características observables antes del programa, se espera que la única diferencia después del programa sea la exposición al mismo
 
 --
 
-### Regresiones simples/multivariadas
+#### Matching
+<img style="float: center;" src="img/impacto/psm.png">
+
+--
+
+#### Matching 
+
+Problemas: 
+- el matching nunca puede controlar por las variables no observables.
+- _common support condition_: se necesita encontrar individuos con las mismas características tanto en el grupo no tratado como en el grupo tratado
+- Mas características, mas complicado de encontrar individuos iguales.
+- Con pocas observaciones, dificil encontra un identico para algunas personas.
+
+<aside class="notes">
+habrá alguna razón para qué dos niños con notas iguales reciban un tratamiento distinto. ¿Será qué la maestra
+sabe que uno tiene más potencial que otro? ¿Será qué uno tiene papás que lo apoyan más y le buscan un tutor?
+</aside>
+
+--
+
+#### Propensity Score Matching
+
+> permite hacer un matching con muchas características. Se reduce el número de características a solo un índice que predice la probabilidad de formar parte del programa
+
+<aside class="notes">
+el índice es un promedio ponderado de las características subyacentes. El matching luego se hace entre individuos que tenían igual probabilidad de participar en el programa.
+</aside>
+
+--
+
+#### Regresiones discontinuas
+
+> Cuando los programas tienen un umbral específico que determina quién recibe un tratamiento, se aprovecha el hecho que los individuos muy cercanos al umbral son básicamente iguales.
+
+--
+
+#### Regresiones discontinuas
+<img style="float: center;" src="img/impacto/discontinua.png" width="65%" height="65%">
+
+--
+
+#### Regresiones discontinuas
+
+Ventaja: permite sacar conclusiones causales tan fiables como el experimento aleatorio.
+
+--
+
+#### Regresiones discontinuas
+Problemas: 
+- Si existe compartamiento estratégico de las personas cercanas al umbral, se produce **<text style="color:yellow">sesgo de selección</text>**. La manipulación alrededor del umbral se denomina **<text style="color:yellow">respuesta conductual al umbral</text>**.
+- Si los individuos cercanos al umbral reciben otros programa, no se puede distinguir el resultado de cada uno.
+<aside class="notes">
+Si, por ejemplo, un programa de ingresos otorga un subsidio a personas que ganan menos de X pesos al mes, las que estén en X + Delta, podrían subdeclarar ingresos para ser parte del programa.
+</aside>
+
+--
+
+#### Regresiones discontinuas
+Ambos problemas pueden solucionarse con un umbral que sea secreto o definidos ex post.
+Ademas, la respuesta conductual al umbral puede testerse. Si existiese, debería haber aglomeración cercana al umbral
 
 --
 
@@ -630,7 +702,7 @@ Problemas:
 
 #### Regresiones simples/multivariadas
 
-![Grafico4](img/impacto/grafico4.png "Grafico 4")
+<img style="float: center;" src="img/impacto/grafico4.png" width="65%" height="65%">
 
 --
 
@@ -652,11 +724,70 @@ Problemas:
 
 ---
 
+## Estudio de casos
+
+--
+
+#### Ley Federal de Educación
+
+<small>
+
+- Autores: María Laura Alzúa y Leonardo Gasparini (CEDLAS-UNLP y CONICET) y Francisco Haimovich (CEDLAS-UNLP y UCLA)
+- Política: En los 90s Argentina impletó una gran reforma educativa (Ley Federal de Educación) que implicaba, principalmente la extensión de la educación obligatoria en 2 años.
+- Método: Diferencias en diferencias, aprovechando la implementación diferencial entre las provincias.
+- Conclusiones: Impacto positivo en los años de educación y en la probabilidad en la terminalidad del secundario. En el mercado laboral (empleo, horas de trabajo y salario) fue positivo para los jóvenes no pobres y casi nula para los pobres.
+
+</small>
+
+--
+
+#### Mercado laboral
+
+<small>
+
+- Autores: Alzúa, María Laura; Cruces, Guillermo; Lopez, Carolina 
+- Política: Programa de empleo juvenil en la provincia de Córdoba, _life-skills_, entrenamiento vocacilanl y pasantías en empresas.
+- Método: Metodo experimental
+- Conclusiones: Ganancias de 8 puntos porcentuales en empleo formal en el corto plazo (18 meses), pero se dispersaban en el largo plazo (48 meses).
+
+</small>
+
+--
+
+#### Política de Vivienda Social
+
+<small>
+
+- Autor: Julian Amendolaggine
+- Política: Programa Habitacional Rosario Norte, también denominado Zona Cero
+- Método: Metodo experimental (originado por la provincia para la asignación)
+- Conclusiones: reducción en el empleo registrado superior al 7 por ciento, especialmente en las mujeres y para los mayores de 50 años, y un deterioro en la situación crediticia, sin aumento en el endeudamiento.
+
+</small>
+
+--
+
+#### Política de transferencia de ingresos
+
+<small>
+
+- Autores: Garganta S., Gasparini L., Marchionni M.
+- Política: Asignación Universal por Hijo, implementada en Argentina un programa de transferencias monetarias condicionadas que beneficia a trabajadores informales o desocupados con hijos
+- Método: Metodo experimental (originado por la provincia para la asignación)
+- Conclusiones: Los resultados sugieren un efecto negativo y significativo del programa sobre la participación laboral de las mujeres. Por el contrario, no se encuentra evidencia de un efecto sobre la oferta laboral de los hombres.
+
+</small>
+
+
+---
+
 #### Bibliografía
 
 <small>
    
 - Abdul Latif‐Jameel Poverty Action Lab (J‐PAL). “¿Por qué aleatorizar?” La evaluación de programas sociales. Universidad de los Andes. Bogota, Colombia. 14 Jul 2010.
+
+- Amendolaggine, Julián (2015). Efectos de la política de vivienda social. Evidencia para Argentina. [Tesis de maestría no publicada]. Universidad Nacional de La Plata. ([descarga](https://www.cedlas.econo.unlp.edu.ar/wp/wp-content/uploads/Amendolaggine.pdf))
 
 - Angrist, J. D., & Pischke, J.-S. (2008). Mostly harmless econometrics. Princeton University Press.
 
@@ -672,11 +803,35 @@ Problemas:
 
 <small>
 
+- Abdul Latif‐Jameel Poverty Action Lab (J‐PAL). “¿Por qué aleatorizar?” La evaluación de programas sociales. Universidad de los Andes. Bogota, Colombia. 14 Jul 2010.
+- Alzua, Maria Laura and Gasparini, Leonardo and Haimovich, Francisco, Educational Reform and Labor Market Outcomes: The Case of Argentina's Ley Federal De Educación (December 2011). Partnership for Economic Policy Working Paper No. 2011-21, Available at [SSRN](https://ssrn.com/abstract=2374327)
+- Alzúa, María Laura; Cruces, Guillermo; Lopez, Carolina (2016) : Long Run Effects of Youth Training Programs: Experimental Evidence from Argentina, IZA Discussion Papers, No. 9784, Institute for the Study of Labor (IZA), Bonn ([descarga](http://sedici.unlp.edu.ar/bitstream/handle/10915/127367/075-676-829-144-470.pdf-PDFA.pdf.pdf?sequence=1))
+- Amendolaggine, Julián (2015). Efectos de la política de vivienda social. Evidencia para Argentina. [Tesis de maestría no publicada]. Universidad Nacional de La Plata. ([descarga](https://www.cedlas.econo.unlp.edu.ar/wp/wp-content/uploads/Amendolaggine.pdf))
+- Angrist, J. D., & Pischke, J.-S. (2008). Mostly harmless econometrics. Princeton University Press.
+
+</small>
+
+--
+
+#### Bibliografía
+
+<small>
+
+- Banerjee, A. V., Cole, S., Duflo, E., & Linden, L. (2007). Remedying Education: Evidence from Two Randomized Experiments in India. The Quarterly Journal of Economics, 122(3), 1235–1264. http://www.jstor.org/stable/25098872 ([descarga](https://www.nber.org/system/files/working_papers/w11904/w11904.pdf))
+- Duflo, E., Glennerster, R. and Kremer, M., Using Randomization in Development Economics Research: A Toolkit (December 12, 2006). MIT Department of Economics Working Paper No. 06-36, Available at [SSRN](https://ssrn.com/abstract=951841) ([descarga](https://www.nber.org/system/files/working_papers/t0333/t0333.pdf))
+- Garganta, S., Gasparini, L., & Marchionni, M. (2015). Social Policy and Female Labor Force Participation: the case of AUH in Argentina [conferencia]. Jornadas de la Asociación Argentina de Economía Política (AAEP), Salta. ([descarga](https://www.cedlas.econo.unlp.edu.ar/wp/wp-content/uploads/Garganta.pdf))
 - Gertler, P., Martinez, S., Rawlings, L., Premand, P., &amp; Vermeersch, C. (2011). La evaluación de impacto en la práctica. Banco Interamericano de Desarrollo ([descarga](https://publications.iadb.org/publications/spanish/document/La-evaluaci%C3%B3n-de-impacto-en-la-pr%C3%A1ctica-Segunda-edici%C3%B3n.pdf))
 
-- Pomeranz, Dina (2017). Impact evaluation methods in public economics : a brief introduction to randomized evaluations and comparison with other methods. Public Finance Review, 45(1):10-43. ([descarga](https://dash.harvard.edu/bitstream/handle/1/25757697/16-049.pdf]))
+</small>
+
+--
+
+#### Bibliografía
+
+<small>
 
 - Guía práctica 5 Evaluación de impacto, Colección Ivàlua de guías prácticas sobre evaluación de políticas públicas, [Ivalúa](https://ivalua.cat/en/node/75)
+- Pomeranz, Dina (2017). Impact evaluation methods in public economics : a brief introduction to randomized evaluations and comparison with other methods. Public Finance Review, 45(1):10-43. ([descarga](https://dash.harvard.edu/bitstream/handle/1/25757697/16-049.pdf]))
 
 </small>
 
