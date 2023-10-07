@@ -92,6 +92,14 @@ Legislatura de la Ciudad Autónoma de Buenos Aires</center></b></small>
 
 **Problema**: Sólo se puede medir lo que ocurrió, no lo que hubiera ocurrido sin el programa.
 
+<aside class="notes">
+Se quiere medir el impacto de un programa o una política en alguna variable de interés. 
+Ejemplo:
+- cuál es el impacto de una notificación en las rectificaciones de impuestos.
+- clases adicionales para estudiantes de colegio sobre la nota
+- capacitación en oficios sobre el empleo
+</aside>
+
 --
 
 #### ¿Qué es evaluación de impacto?
@@ -103,9 +111,27 @@ Cada evaluación intenta construir la estimación del contrafactual de la mejor 
 --
 
 #### ¿Qué es evaluación de impacto?
+<center>
+
+![contrafactual](img/impacto/contrafactual.png)
+
+</center>
+
+##### Impacto: Diferencia entre resultado observable (negro) y el contrafactual nunca observado (gris)
 
 
-**Grupo de control**: personas que no participan en el programa.
+--
+
+#### ¿Qué es evaluación de impacto?
+
+La estimación del contrafactual se representa con un grupo que se denomina el
+grupo de control o de comparación
+
+--
+
+#### ¿Qué es evaluación de impacto?
+
+**Grupo de control**: personas que no participan en el programa, cumpliendo los requisitos para hacerlos.
 
 **Grupo de tratamiento**: personas que participaron en el programa.
 
@@ -117,9 +143,6 @@ Si _GC_ y _CT_ son iguales en todas sus características (observables y no obser
 
 #### ¿Qué es evaluación de impacto?
 
-### ![Contrafactual](img/impacto/contrafactual.png)
-
-##### Impacto: Diferencia entre resultado observable (negro) y el contrafactual nunca observado (gris)
 
 --
 
@@ -215,20 +238,15 @@ sean difíciles de medir.
 --
 
 #### Método experimental
-<center><b> Los experimentos resuelven el problema de sesgo de selección</b></center>
 
+- Construye un grupo de control de máxima calidad. No hay diferencias entre _GC_ y _GT_. Resuelven el problema de sesgo de selección
 
-Si el tratamiento (`$w$`) es asignado de manera aleatoria, entonces es independiente de los resultados potenciales (Supuesto de Independencia)
-
-`$wi⊥{Y_0, Y_1} (4)$`
+- Requiere que la evaluación se prepare **_antes_** de lanzar el programa
 
 --
 
 #### Método experimental
-
-- Construye un grupo de control de máxima calidad. No hay diferencias entre _GC_ y _GT_
-
-- Requiere que se la evaluación se prepare **_antes_** de lanzar el programa
+![Asignación Aleatoria](img/impacto/aleatorio.png)
 
 --
 
