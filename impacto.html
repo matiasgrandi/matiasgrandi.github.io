@@ -16,8 +16,11 @@
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/night.css" id="theme">
 	
+	<!-- Theme -->
+	<!-- <link rel="stylesheet" href="dist/theme/moon.css" id="theme"> -->
+	<link href="https://cdn.jsdelivr.net/npm/@vibbioinfocore/reveal-vib-theme@1.0.3/dist/reveal-vib-theme.min.css" rel="stylesheet">
+
 	<!-- Title-Footer plugin -->
 	<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
 	
@@ -46,12 +49,14 @@
 
 	<!-- https://stackoverflow.com/questions/21019476/how-can-i-get-left-justified-paragraphs-in-reveal-js -->
 	<style type="text/css">
-	    	p { text-align: left; }
+	    	p { 
+	    	  text-align: left; 
+	    	  }
 		.reveal h6 {
-	        text-transform: none;
-        	font-weight: 400;
+	          text-transform: none;
+        	  font-weight: 400;
+        	  }
 	</style>
-	
 
 
 	
@@ -60,13 +65,25 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+			<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-background-color="grey">>
 
 
 
 
 
 <textarea data-template>
+
+<section data-background-image="img/impacto/background.jpg" data-background-size="100%">
+
+#### Programa de capacitación en políticas públicas
+
+### Introducción a los métodos de evaluación de impacto
+###### [Lic. Matías Grandi](mailto:matiasgrandi@gmail.com)
+<small><b><center>Legislatura de la Ciudad Autónoma de Buenos Aires</center></b></small>
+</section>
+
+---
+
 #### Programa de capacitación en políticas públicas
 
 ### Introducción a los métodos de evaluación de impacto
@@ -81,6 +98,7 @@ Legislatura de la Ciudad Autónoma de Buenos Aires</center></b></small>
 ---
 
 ## ¿Qué es evaluación de impacto?
+
 
 --
 
@@ -215,7 +233,12 @@ _«verdad relativa» de una inferencia causal, es decir, robustez con que se con
 --
 
 #### Validez interna
+En cada evaluación, diremos que el diseño metodológico es más o menos válido en tanto que descarte convincentemente las siguientes explicaciones alternativas.
+&#11015;
 
+--
+
+#### Validez interna
 - Historia/factores contemporáneos: acontecimientos que suceden durante la implementación del programa y que pueden influir sobre los outcomes
 - Sesgo de selección: se produce cuando existe, desde antes del programa, alguna diferencia entre los participantes y el grupo de comparación que puede ser potencialmente responsable de las diferencias en _outcomes_
 
@@ -858,10 +881,16 @@ Problemas:
 			// Also available as an ES module, see:
 			// https://revealjs.com/initialization/
 			Reveal.initialize({
+				    // width: "80%",
+				    // height: "100%",
+				    // margin: 0,
+				    minScale: 1,
+				    maxScale: 1,
 				controls: true,
 				progress: true,
 				center: true,
 				hash: true,
+				mouseWheel: true,
 				customcontrols: {
 				    controls: [
 				      { icon: '<i class="fa fa-pen-square"></i>',
@@ -874,6 +903,7 @@ Problemas:
 				      }
 				    ]
 				  },
+
 				chalkboard: {
 				    // add configuration here
 				  },
