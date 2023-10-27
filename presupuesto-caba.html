@@ -1,70 +1,47 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
-<head>
-	<meta charset="utf-8">
+	<head>
+		<meta charset="utf-8">
 
-	<title>Presupuesto Público</title>
+		<title>Presupuesto</title>
 
-	<meta name="description" content="Presupuesto Público">
-	<meta name="author" content="">
+		<meta name="description" content="Conceptos básicos de presupuesto">
+		<meta name="author" content="Matías Grandi">
 
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="dist/reset.css">
-	<link rel="stylesheet" href="dist/reveal.css">
-	
-	<!-- Theme -->
-	<!-- <link rel="stylesheet" href="dist/theme/moon.css" id="theme"> -->
-	<link href="https://cdn.jsdelivr.net/npm/@vibbioinfocore/reveal-vib-theme@1.0.3/dist/reveal-vib-theme.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
 
-	<!-- Title-Footer plugin -->
-	<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
-	
-	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	
-	<!-- Font awesome is required for the chalkboard plugin -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<!-- https://stackoverflow.com/questions/21019476/how-can-i-get-left-justified-paragraphs-in-reveal-js -->
+		<style type="text/css">
+		    	p { 
+		    	  text-align: left; 
+		    	  }
+			.reveal h6 {
+			  text-transform: none;
+			  font-weight: 400;
+			  }
+		</style>
 
-	<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
-	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+		
+	</head>
 
-	<!-- Chalkboard plugin -->
-	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+	<body>
 
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css">
-	
-	<!-- Pointer plugin -->
-	<link rel="stylesheet" href="plugin/pointer/pointer.css" />
-	
-	<!-- Chart plugin -->
-	<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+		<div class="reveal">
 
-	<!-- https://stackoverflow.com/questions/21019476/how-can-i-get-left-justified-paragraphs-in-reveal-js -->
-	<style type="text/css">
-	    	p { 
-	    	  text-align: left; 
-	    	  }
-		}
-	</style>
-
-</head>
-
-<body>
-	<div class="reveal">
-		<div class="slides">
-			<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-background-color="grey">>
-
-<textarea data-template>
+			<div class="slides">
+				<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+				<textarea data-template>
 
 					#### Presupuesto Público
 					## Conceptos básicos del presupuesto por programas y su ejecución
@@ -296,7 +273,7 @@
 					#### Cadena de valor público
 					
 					
-					<img style="float: center;" src="img/presupuesto-caba/m_e.png" width ="60%">
+					<img style="float: center;" src="img/presupuesto-caba/m_e.png">
 
 
 
@@ -534,76 +511,32 @@
 		<script src="plugin/search/search.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
-		<script src="plugin/math/math.js"></script>
-				<!-- Chart plugin -->
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
-		<script src="plugin/pointer/pointer.js"></script>
+		
 		<script>
 
 			// Also available as an ES module, see:
 			// https://revealjs.com/initialization/
 			Reveal.initialize({
-				    //width: "80%",
-				    //height: "100%",
-				    margin: 0,
-				    minScale: 1,
-				    maxScale: 2.5,
+				width: "80%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1,
 				controls: true,
 				progress: true,
 				center: true,
 				hash: true,
-				mouseWheel: true,
-				customcontrols: {
-				    controls: [
-				      { icon: '<i class="fa fa-pen-square"></i>',
-					title: 'Toggle chalkboard (B)',
-					action: 'RevealChalkboard.toggleChalkboard();'
-				      },
-				      { icon: '<i class="fa fa-pen"></i>',
-					title: 'Toggle notes canvas (C)',
-					action: 'RevealChalkboard.toggleNotesCanvas();'
-				      }
-				    ]
-				},
 
-				chalkboard: {
-				    // add configuration here
-				},
-				pointer: {
-				    key: "q", // key to enable pointer, default "q", not case-sensitive
-				    color: "red", // color of a cursor, default "red" any valid CSS color
-				    opacity: 0.8, // opacity of cursor, default 0.8
-				    pointerSize: 12, // pointer size in px, default 12
-				    alwaysVisible: false, // should pointer mode be always visible? default "false"
-				    tailLength: 10, // NOT IMPLEMENTED YET!!! how long the "tail" should be? default 10
-				},
-				chart: {
-					defaults: {
-						color: 'lightgray', // color of labels
-						scale: {
-							beginAtZero: true,
-							ticks: { stepSize: 1 },
-							grid: { color: "lightgray" } , // color of grid lines
-						},
-					},
-					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": 																[ [5,10], [0,0] ] },
-					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
-					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
-				},
+
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ 	RevealZoom, 
+				plugins: [ RevealZoom, 
 						RevealNotes, 
 						RevealSearch, 
 						RevealMarkdown, 
-						RevealHighlight, 
-						RevealMath.KaTeX, 
-						RevealChart, 
-						RevealChalkboard, 
-						RevealCustomControls,
-						RevealPointer ]
+						RevealHighlight ]
 			});
 
 		</script>
+
 	</body>
 </html>
